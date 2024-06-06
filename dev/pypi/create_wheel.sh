@@ -12,14 +12,12 @@
 #set -xeu pipefail
 
 security-check() {
-    echo -n "Did you change the version in \`CHANGELOG.md\` ? [yes|NO] "
+    echo -n "Did you change the version in \`CHANGELOG.md\`, \`sphins-config\` and \`git tag v0.4.3\` and \`git push origin v0.4.3\`? [yes|NO] "
     local SURE
     read SURE
     if [ "$SURE" != "yes" ]; then
         exit 1
     fi
-    echo "https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/actions/workflows/build_wheels.yml"
-    echo "https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/actions/workflows/build_conda.yml"
 }
 
 compile-check() {

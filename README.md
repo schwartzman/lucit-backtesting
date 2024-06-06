@@ -33,6 +33,7 @@ and take care of code reviews, pull requests and releases and hope for good supp
 Installation
 ------------
 
+    $ pip uninstall backtesting
     $ pip install lucit-backtesting
 
 

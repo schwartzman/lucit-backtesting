@@ -3,7 +3,7 @@ What's New
 
 These were the major changes contributing to each release:
 
-### 0.4.3
+### 0.4.0
 (2024-06-06)
 
 Takeover of maintenance by LUCIT.
