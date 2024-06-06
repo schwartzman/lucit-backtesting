@@ -1,19 +1,21 @@
 [![](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/logo/lucit-backtesting.png)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/)
 
-Backtesting.py
-==============
+lucit-backtesting
+=================
 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/kernc?color=pink)](https://github.com/sponsors/kernc)
 
 Backtest trading strategies with Python.
 
-Kudos to Zach Lûster for the original project backtesting.py which he built and maintained for 5 years. 
+Kudos to Zach Lûster for the original project [`kernc/backtesting.py`](https://github.com/kernc/backtesting.py) which 
+he built and maintained for 5 years. 
 
-We at LUCIT like to use backtesting.py with our customers in smaller projects. Unfortunately the project is missing 
-important updates and have decided to fork the project and release new stable versions. We are also happy to maintain 
-the repository and take care of code reviews, pull requests and releases and hope for good support from the community!
+We at [LUCIT](https://www.lucit.tech) like to use `backtesting.py` with our customers in smaller projects. 
+Unfortunately the project is missing important updates and therefore we decided to fork the project and release new 
+stable versions. 
 
-
+We are happy to maintain the forked repository and take care of code reviews, pull requests and releases and hope for 
+good support from the community!
 
 Installation
 ------------
@@ -85,10 +87,6 @@ _equity_curve                          Equ...
 _trades                       Size  EntryB...
 dtype: object
 ```
-[![plot of trading simulation](https://i.imgur.com/xRFNHfg.png)](https://kernc.github.io/backtesting.py/#example)
-
-Find more usage examples in the [documentation].
-
 
 Features
 --------
@@ -106,15 +104,8 @@ Features
 
 Bugs
 ----
-Before reporting bugs or posting to the
-[discussion board](https://github.com/kernc/backtesting.py/discussions),
+Before [reporting bugs](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues) or posting to the
+[discussion board](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/discussions),
 please read [contributing guidelines](CONTRIBUTING.md), particularly the section
 about crafting useful bug reports and ```` ``` ````-fencing your code. We thank you!
 
-
-Alternatives
-------------
-See [alternatives.md] for a list of alternative Python
-backtesting frameworks and related packages.
-
-[alternatives.md]: https://github.com/kernc/backtesting.py/blob/master/doc/alternatives.md
