@@ -1,6 +1,5 @@
 *.py[cod]
-*.html
-*.png
+
 _version.py
 
 *.egg-info

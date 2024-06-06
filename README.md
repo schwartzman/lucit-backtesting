@@ -2,32 +2,32 @@
 
 Backtesting.py
 ==============
-[![Build Status](https://img.shields.io/github/actions/workflow/status/kernc/backtesting.py/ci.yml?branch=master&style=for-the-badge)](https://github.com/kernc/backtesting.py/actions)
-[![Code Coverage](https://img.shields.io/codecov/c/gh/kernc/backtesting.py.svg?style=for-the-badge)](https://codecov.io/gh/kernc/backtesting.py)
-[![Backtesting on PyPI](https://img.shields.io/pypi/v/backtesting.svg?color=blue&style=for-the-badge)](https://pypi.org/project/backtesting)
-[![PyPI downloads](https://img.shields.io/pypi/dd/backtesting.svg?color=skyblue&style=for-the-badge)](https://pypi.org/project/backtesting)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/kernc?color=pink&style=for-the-badge)](https://github.com/sponsors/kernc)
+
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/kernc?color=pink)](https://github.com/sponsors/kernc)
 
 Backtest trading strategies with Python.
 
-[**Project website**](https://kernc.github.io/backtesting.py) + [Documentation]
+Kudos to Zach Lûster for the original project backtesting.py which he built and maintained for 5 years. 
 
-[Documentation]: https://kernc.github.io/backtesting.py/doc/backtesting/
+We at LUCIT like to use backtesting.py with our customers in smaller projects. Unfortunately the project is missing 
+important updates and have decided to fork the project and release new stable versions. We are also happy to maintain 
+the repository and take care of code reviews, pull requests and releases and hope for good support from the community!
+
 
 
 Installation
 ------------
 
-    $ pip install backtesting
+    $ pip install lucit-backtesting
 
 
 Usage
 -----
 ```python
-from backtesting import Backtest, Strategy
-from backtesting.lib import crossover
+from lucit_backtesting import Backtest, Strategy
+from lucit_backtesting.lib import crossover
 
-from backtesting.test import SMA, GOOG
+from lucit_backtesting.test import SMA, GOOG
 
 
 class SmaCross(Strategy):

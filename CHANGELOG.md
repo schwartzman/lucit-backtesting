@@ -3,8 +3,12 @@ What's New
 
 These were the major changes contributing to each release:
 
-### 0.x.x
+### 1.0.0
+(2024-06-06)
 
+Takeover of maintenance by LUCIT.
+
+* Fix 'ValueError: Length of values (2) does not match length of index (1)' [#649](https://github.com/kernc/backtesting.py/issues/649)
 
 ### 0.3.3
 (2021-12-13)
