@@ -24,7 +24,7 @@ Kudos to ***Zach Lûster*** for the original project [`kernc/backtesting.py`](ht
 which he built and maintained for 5 years. 
 
 We at [LUCIT](https://www.lucit.tech) like to use `backtesting.py` with our customers in smaller projects. 
-Unfortunately the project is missing important updates and therefore we decided to fork the project and release new 
+Unfortunately the project is missing important updates, and therefore we decided to fork the project and release new 
 stable versions. 
 
 We are happy to maintain [our forked repository](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting) 
@@ -67,6 +67,9 @@ bt.plot()
 ```
 
 Results in:
+
+[![Backtesting HTML result](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/screenshot_html_result.png)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting)
+
 
 ```
 Start                     2004-08-19 00:00:00
