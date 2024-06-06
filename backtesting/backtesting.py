@@ -289,8 +289,9 @@ class Strategy(metaclass=ABCMeta):
 
 class _Orders(tuple):
     """
-    TODO: remove this class. Only for deprecation.
+
     """
+    # TODO: remove this class. Only for deprecation.
     def cancel(self):
         """Cancel all non-contingent (i.e. SL/TP) orders."""
         for order in self:

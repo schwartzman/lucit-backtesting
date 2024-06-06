@@ -18,8 +18,8 @@ security-check() {
     if [ "$SURE" != "yes" ]; then
         exit 1
     fi
-    echo "https://github.com/LUCIT-Systems-and-Development/lucit_backtesting/actions/workflows/build_wheels.yml"
-    echo "https://github.com/LUCIT-Systems-and-Development/lucit_backtesting/actions/workflows/build_conda.yml"
+    echo "https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/actions/workflows/build_wheels.yml"
+    echo "https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/actions/workflows/build_conda.yml"
 }
 
 compile-check() {
