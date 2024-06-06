@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>backtesting package &#8212; lucit-backtesting 0.4.4 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lucit_backtesting package &#8212; lucit-backtesting 0.4.4 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=fdf8e9ae" />
@@ -64,7 +64,7 @@
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">backtesting package</a><ul>
+<li><a class="reference internal" href="#">lucit_backtesting package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-backtesting.backtesting">backtesting.backtesting module</a><ul>
 <li><a class="reference internal" href="#backtesting.backtesting.Backtest"><code class="docutils literal notranslate"><span class="pre">Backtest</span></code></a><ul>
@@ -246,7 +246,7 @@
               
               <a href="index.html">Docs</a> &#187;
               
-        <li class="nav-item nav-item-this"><a href="">backtesting package</a></li>
+        <li class="nav-item nav-item-this"><a href="">lucit_backtesting package</a></li>
                 <li class="right">
                     
 
@@ -269,8 +269,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="backtesting-package">
-<h1>backtesting package<a class="headerlink" href="#backtesting-package" title="Link to this heading">¶</a></h1>
+  <section id="lucit-backtesting-package">
+<h1>lucit_backtesting package<a class="headerlink" href="#lucit-backtesting-package" title="Link to this heading">¶</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
@@ -689,7 +689,7 @@ price point revelation. In each call of
 <cite>backtesting.backtesting.Strategy.next</cite> (iteratively called by
 <cite>backtesting.backtesting.Backtest</cite> internally),
 the last array value (e.g. <cite>data.Close[-1]</cite>)
-is always the _most <a href="#id1"><span class="problematic" id="id2">recent_</span></a> value.</p></li>
+is always the most recent value.</p></li>
 <li><p>If you need data arrays (e.g. <cite>data.Close</cite>) to be indexed
 <strong>Pandas series</strong>, you can call their <cite>.s</cite> accessor
 (e.g. <cite>data.Close.s</cite>). If you need the whole of data
@@ -1160,48 +1160,39 @@ are passed to <cite>func</cite>.</p>
 <cite>SMA(values, lookback_period)</cite>, _hourly_ data source, and need to
 apply the moving average MA(10) on a _daily_ time frame,
 but don’t want to plot the resulting indicator, we can do:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>class System(Strategy):</dt><dd><dl class="simple">
-<dt>def init(self):</dt><dd><dl class="simple">
-<dt>self.sma = resample_apply(</dt><dd><p>‘D’, SMA, self.data.Close, 10, plot=False)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">System</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sma</span> <span class="o">=</span> <span class="n">resample_apply</span><span class="p">(</span>
+            <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">SMA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The above short snippet is roughly equivalent to:</p>
-<blockquote>
-<div><dl>
-<dt>class System(Strategy):</dt><dd><dl>
-<dt>def init(self):</dt><dd><p># Strategy exposes <cite>self.data</cite> as raw NumPy arrays.
-# Let’s convert closing prices back to pandas Series.
-close = self.data.Close.s</p>
-<p># Resample to daily resolution. Aggregate groups
-# using their last value (i.e. closing price at the end
-# of the day). Notice <cite>label=’right’</cite>. If it were set to
-# ‘left’ (default), the strategy would exhibit
-# look-ahead bias.
-daily = close.resample(‘D’, label=’right’).agg(‘last’)</p>
-<p># We apply SMA(10) to daily close prices,
-# then reindex it back to original hourly index,
-# forward-filling the missing values in each day.
-# We make a separate function that returns the final
-# indicator array.
-def SMA(series, n):</p>
-<blockquote>
-<div><p>from backtesting.test import SMA
-return SMA(series, n).reindex(close.index).ffill()</p>
-</div></blockquote>
-<p># The result equivalent to the short example above:
-self.sma = self.I(SMA, daily, 10, plot=False)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">System</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Strategy exposes `self.data` as raw NumPy arrays.</span>
+        <span class="c1"># Let&#39;s convert closing prices back to pandas Series.</span>
+        <span class="n">close</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">s</span>
+
+        <span class="c1"># Resample to daily resolution. Aggregate groups</span>
+        <span class="c1"># using their last value (i.e. closing price at the end</span>
+        <span class="c1"># of the day). Notice `label=&#39;right&#39;`. If it were set to</span>
+        <span class="c1"># &#39;left&#39; (default), the strategy would exhibit</span>
+        <span class="c1"># look-ahead bias.</span>
+        <span class="n">daily</span> <span class="o">=</span> <span class="n">close</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+
+        <span class="c1"># We apply SMA(10) to daily close prices,</span>
+        <span class="c1"># then reindex it back to original hourly index,</span>
+        <span class="c1"># forward-filling the missing values in each day.</span>
+        <span class="c1"># We make a separate function that returns the final</span>
+        <span class="c1"># indicator array.</span>
+        <span class="k">def</span> <span class="nf">SMA</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">backtesting.test</span> <span class="kn">import</span> <span class="n">SMA</span>
+            <span class="k">return</span> <span class="n">SMA</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">close</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
+
+        <span class="c1"># The result equivalent to the short example above:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">I</span><span class="p">(</span><span class="n">SMA</span><span class="p">,</span> <span class="n">daily</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -1274,7 +1265,7 @@ itself find their way back to the community.</p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">backtesting package</a><ul>
+<li><a class="reference internal" href="#">lucit_backtesting package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-backtesting.backtesting">backtesting.backtesting module</a><ul>
 <li><a class="reference internal" href="#backtesting.backtesting.Backtest"><code class="docutils literal notranslate"><span class="pre">Backtest</span></code></a><ul>
@@ -1456,7 +1447,7 @@ itself find their way back to the community.</p>
               
               <a href="index.html">Docs</a> &#187;
               
-        <li class="nav-item nav-item-this"><a href="">backtesting package</a></li>
+        <li class="nav-item nav-item-this"><a href="">lucit_backtesting package</a></li>
                 <li class="right">
                     
 
@@ -1477,7 +1468,7 @@ itself find their way back to the community.</p>
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2024-2024, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Jun 06 2024 at 20:53 (CET).
+    Last updated on Jun 06 2024 at 21:29 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

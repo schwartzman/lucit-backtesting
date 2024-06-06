@@ -380,8 +380,7 @@
 <span class="sd">    `rule` is a valid [Pandas offset string] indicating</span>
 <span class="sd">    a time frame to resample `series` to.</span>
 
-<span class="sd">    [Pandas offset string]: \</span>
-<span class="sd">http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases</span>
+<span class="sd">    [Pandas offset string]: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases</span>
 
 <span class="sd">    `func` is the indicator function to apply on the resampled series.</span>
 
@@ -407,12 +406,16 @@
 <span class="sd">    apply the moving average MA(10) on a _daily_ time frame,</span>
 <span class="sd">    but don&#39;t want to plot the resulting indicator, we can do:</span>
 
+<span class="sd">    .. code-block:: python</span>
+
 <span class="sd">        class System(Strategy):</span>
 <span class="sd">            def init(self):</span>
 <span class="sd">                self.sma = resample_apply(</span>
 <span class="sd">                    &#39;D&#39;, SMA, self.data.Close, 10, plot=False)</span>
 
 <span class="sd">    The above short snippet is roughly equivalent to:</span>
+
+<span class="sd">    .. code-block:: python</span>
 
 <span class="sd">        class System(Strategy):</span>
 <span class="sd">            def init(self):</span>
@@ -799,7 +802,7 @@
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2024-2024, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Jun 06 2024 at 20:31 (CET).
+    Last updated on Jun 06 2024 at 21:29 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

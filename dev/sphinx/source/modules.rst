@@ -1,7 +1,0 @@
-lucit_backtesting
-=============================
-
-.. toctree::
-   :maxdepth: 4
-
-   backtesting

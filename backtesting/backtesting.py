@@ -258,7 +258,7 @@ class Strategy(metaclass=ABCMeta):
           `backtesting.backtesting.Strategy.next` (iteratively called by
           `backtesting.backtesting.Backtest` internally),
           the last array value (e.g. `data.Close[-1]`)
-          is always the _most recent_ value.
+          is always the most recent value.
         * If you need data arrays (e.g. `data.Close`) to be indexed
           **Pandas series**, you can call their `.s` accessor
           (e.g. `data.Close.s`). If you need the whole of data
@@ -1315,9 +1315,9 @@ class Backtest:
             backtest.optimize(sma1=[5, 10, 15], sma2=[10, 20, 40],
                               constraint=lambda p: p.sma1 < p.sma2)
 
-        .. TODO::
-            Improve multiprocessing/parallel execution on Windos with start method 'spawn'.
         """
+        # TODO:
+        #   - Improve multiprocessing/parallel execution on Windos with start method 'spawn'.
         if not kwargs:
             raise ValueError('Need some strategy parameters to optimize')
 

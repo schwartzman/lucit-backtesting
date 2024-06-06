@@ -214,8 +214,7 @@ def resample_apply(rule: str,
     `rule` is a valid [Pandas offset string] indicating
     a time frame to resample `series` to.
 
-    [Pandas offset string]: \
-http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
+    [Pandas offset string]: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
 
     `func` is the indicator function to apply on the resampled series.
 
@@ -241,12 +240,16 @@ http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
     apply the moving average MA(10) on a _daily_ time frame,
     but don't want to plot the resulting indicator, we can do:
 
+    .. code-block:: python
+
         class System(Strategy):
             def init(self):
                 self.sma = resample_apply(
                     'D', SMA, self.data.Close, 10, plot=False)
 
     The above short snippet is roughly equivalent to:
+
+    .. code-block:: python
 
         class System(Strategy):
             def init(self):

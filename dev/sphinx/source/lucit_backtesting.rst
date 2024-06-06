@@ -1,9 +1,8 @@
-backtesting package
-===================
+lucit\_backtesting package
+==========================
 
 Submodules
 ----------
-
 
 
 backtesting.backtesting module
@@ -21,7 +20,6 @@ backtesting.lib module
     :members:
     :undoc-members:
     :show-inheritance:
-
 
 
 Module contents
