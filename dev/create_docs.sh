@@ -15,4 +15,4 @@ cd doc
 echo "Creating CNAME file for GitHub."
 echo "lucit-backtesting.docs.lucit.tech" >> ./build/lucit_backtesting/CNAME
 cp ./build/lucit_backtesting/* -r ../docs
-rm ./build/lucit_backtesting -r
+#rm ./build/lucit_backtesting -r
