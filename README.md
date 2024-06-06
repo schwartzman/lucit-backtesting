@@ -1,4 +1,4 @@
-[![](https://i.imgur.com/E8Kj69Y.png)](https://kernc.github.io/backtesting.py/)
+[![](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/logo/lucit-backtesting.png)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/)
 
 Backtesting.py
 ==============
