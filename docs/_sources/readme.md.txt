@@ -6,7 +6,7 @@ lucit-backtesting - 'backtesting.py' maintained by LUCIT
 [![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/lucit-backtesting.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/releases)
 [![PyPi Release](https://img.shields.io/pypi/v/lucit-backtesting?color=blue)](https://pypi.org/project/lucit-backtesting/)
 [![Supported Python Version](https://img.shields.io/pypi/pyversions/lucit_backtesting.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-LSOSL-blue)](https://lucit-backtesting.docs.lucit.tech/license.html)
+![License](https://img.shields.io/github/license/LUCIT-Systems-and-Development/lucit-backtesting.svg?color=blue) 
 [![PyPi Downloads](https://pepy.tech/badge/lucit-backtesting)](https://pepy.tech/project/lucit-backtesting)
 [![PyPi Downloads](https://pepy.tech/badge/lucit-backtesting/month)](https://pepy.tech/project/lucit-backtesting)
 [![PyPi Downloads](https://pepy.tech/badge/lucit-backtesting/week)](https://pepy.tech/project/lucit-backtesting)
