@@ -11,6 +11,7 @@ Welcome to lucit-backtesting's documentation!
    :caption: Contents:
 
    Readme <readme.md>
+   Lib <lucit_backtesting.rst>
    Modules <modules.rst>
    ChangeLog <changelog.md>
    Code of Conduct <code_of_conduct.md>

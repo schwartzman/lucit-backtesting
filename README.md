@@ -1,5 +1,8 @@
 [![](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/logo/lucit-backtesting.png)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/)
 
+lucit-backtesting - 'backtesting.py' maintained by LUCIT
+========================================================
+
 [![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/lucit-backtesting.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/releases)
 [![PyPi Release](https://img.shields.io/pypi/v/lucit-backtesting?color=blue)](https://pypi.org/project/lucit-backtesting/)
 [![Supported Python Version](https://img.shields.io/pypi/pyversions/lucit_backtesting.svg)](https://www.python.org/downloads/)
@@ -14,10 +17,6 @@
 [![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting)
 [![Telegram](https://img.shields.io/badge/community-telegram-41ab8c)](https://t.me/unicorndevs)
 [![Get Free Professional Support](https://img.shields.io/badge/chat-lucit%20support-004166)](https://www.lucit.tech/get-support.html)
-
-lucit-backtesting - 'backtesting.py' maintained by LUCIT
-========================================================
-
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/kernc?color=pink)](https://github.com/sponsors/kernc)
 
 Backtest trading strategies with Python.
@@ -121,6 +120,6 @@ Bugs
 ----
 Before [reporting bugs](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues) or posting to the
 [discussion board](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/discussions),
-please read [contributing guidelines](CONTRIBUTING.md), particularly the section
-about crafting useful bug reports and ```` ``` ````-fencing your code. We thank you!
+please read [contributing guidelines](https://lucit-backtesting.docs.lucit.tech/contributing.html), 
+particularly the section about crafting useful bug reports and ```` ``` ````-fencing your code. We thank you!
 
