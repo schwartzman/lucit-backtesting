@@ -32,6 +32,7 @@ and take care of code reviews, pull requests and releases and hope for good supp
 
 Installation
 ------------
+You can have either `backtesting.py` or `lucit-backtesting` installed, but not both!
 
     $ pip uninstall backtesting
     $ pip install lucit-backtesting
