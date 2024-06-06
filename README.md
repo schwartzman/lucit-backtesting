@@ -1,7 +1,7 @@
 [![](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/logo/lucit-backtesting.png)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/)
 
-lucit-backtesting
-=================
+lucit-backtesting - 'backtesting.py' maintained by LUCIT
+========================================================
 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/kernc?color=pink)](https://github.com/sponsors/kernc)
 
