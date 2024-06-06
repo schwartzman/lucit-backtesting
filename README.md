@@ -25,7 +25,7 @@ Installation
 
 Usage
 -----
-```python
+```
 from lucit_backtesting import Backtest, Strategy
 from lucit_backtesting.lib import crossover
 
@@ -53,7 +53,7 @@ bt.plot()
 
 Results in:
 
-```text
+```
 Start                     2004-08-19 00:00:00
 End                       2013-03-01 00:00:00
 Duration                   3116 days 00:00:00

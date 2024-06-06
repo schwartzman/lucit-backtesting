@@ -2,21 +2,21 @@ import os
 import sys
 
 if sys.version_info < (3, 6):
-    sys.exit('ERROR: Backtesting.py requires Python 3.6+')
+    sys.exit('ERROR: lucit-backtesting requires Python 3.6+')
 
 
 if __name__ == '__main__':
     from setuptools import setup, find_packages
 
     setup(
-        name='Backtesting',
+        name='lucit-backtesting',
         description="Backtest trading strategies in Python",
         license='AGPL-3.0',
-        url='https://kernc.github.io/backtesting.py/',
+        url='https://github.com/LUCIT-Systems-and-Development/lucit-backtesting',
         project_urls={
             'Documentation': 'https://kernc.github.io/backtesting.py/doc/backtesting/',
-            'Source': 'https://github.com/kernc/backtesting.py/',
-            'Tracker': 'https://github.com/kernc/backtesting.py/issues',
+            'Source': 'https://github.com/LUCIT-Systems-and-Development/lucit-backtesting',
+            'Tracker': 'https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues',
         },
         long_description=open(os.path.join(os.path.dirname(__file__), 'README.md'),
                               encoding='utf-8').read(),
