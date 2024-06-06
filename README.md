@@ -7,8 +7,8 @@ lucit-backtesting - 'backtesting.py' maintained by LUCIT
 
 Backtest trading strategies with Python.
 
-Kudos to Zach Lûster for the original project [`kernc/backtesting.py`](https://github.com/kernc/backtesting.py) which 
-he built and maintained for 5 years. 
+Kudos to ***Zach Lûster*** for the original project [`kernc/backtesting.py`](https://github.com/kernc/backtesting.py) 
+which he built and maintained for 5 years. 
 
 We at [LUCIT](https://www.lucit.tech) like to use `backtesting.py` with our customers in smaller projects. 
 Unfortunately the project is missing important updates and therefore we decided to fork the project and release new 
