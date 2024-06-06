@@ -26,10 +26,10 @@ Installation
 Usage
 -----
 ```
-from lucit_backtesting import Backtest, Strategy
-from lucit_backtesting.lib import crossover
+from backtesting import Backtest, Strategy
+from backtesting.lib import crossover
 
-from lucit_backtesting.test import SMA, GOOG
+from backtesting.test import SMA, GOOG
 
 
 class SmaCross(Strategy):

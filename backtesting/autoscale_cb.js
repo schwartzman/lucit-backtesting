@@ -5,7 +5,7 @@ if (!window._bt_scale_range) {
             pad = pad ? (max - min) * .03 : 0;
             range.start = min - pad;
             range.end = max + pad;
-        } else console.error('lucit_backtesting: scale range error:', min, max, range);
+        } else console.error('backtesting: scale range error:', min, max, range);
     };
 }
 

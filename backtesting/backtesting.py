@@ -3,7 +3,7 @@ Core framework data structures.
 Objects from this module can also be imported from the top-level
 module directly, e.g.
 
-    from lucit_backtesting import Backtest, Strategy
+    from backtesting import Backtest, Strategy
 """
 import multiprocessing as mp
 import os
@@ -45,8 +45,8 @@ class Strategy(metaclass=ABCMeta):
     """
     A trading strategy base class. Extend this class and
     override methods
-    `lucit_backtesting.lucit_backtesting.Strategy.init` and
-    `lucit_backtesting.lucit_backtesting.Strategy.next` to define
+    `backtesting.backtesting.Strategy.init` and
+    `backtesting.backtesting.Strategy.next` to define
     your own strategy.
     """
     def __init__(self, broker, data, params):
@@ -82,18 +82,18 @@ class Strategy(metaclass=ABCMeta):
         """
         Declare an indicator. An indicator is just an array of values,
         but one that is revealed gradually in
-        `lucit_backtesting.lucit_backtesting.Strategy.next` much like
-        `lucit_backtesting.lucit_backtesting.Strategy.data` is.
+        `backtesting.backtesting.Strategy.next` much like
+        `backtesting.backtesting.Strategy.data` is.
         Returns `np.ndarray` of indicator values.
 
         `func` is a function that returns the indicator array(s) of
-        same length as `lucit_backtesting.lucit_backtesting.Strategy.data`.
+        same length as `backtesting.backtesting.Strategy.data`.
 
         In the plot legend, the indicator is labeled with
         function name, unless `name` overrides it.
 
         If `plot` is `True`, the indicator is plotted on the resulting
-        `lucit_backtesting.lucit_backtesting.Backtest.plot`.
+        `backtesting.backtesting.Backtest.plot`.
 
         If `overlay` is `True`, the indicator is plotted overlaying the
         price candlestick chart (suitable e.g. for moving averages).
@@ -164,11 +164,11 @@ class Strategy(metaclass=ABCMeta):
         """
         Initialize the strategy.
         Override this method.
-        Declare indicators (with `lucit_backtesting.lucit_backtesting.Strategy.I`).
+        Declare indicators (with `backtesting.backtesting.Strategy.I`).
         Precompute what needs to be precomputed or can be precomputed
         in a vectorized fashion before the strategy starts.
 
-        If you extend composable strategies from `lucit_backtesting.lib`,
+        If you extend composable strategies from `backtesting.lib`,
         make sure to call:
 
             super().init()
@@ -178,13 +178,13 @@ class Strategy(metaclass=ABCMeta):
     def next(self):
         """
         Main strategy runtime method, called as each new
-        `lucit_backtesting.lucit_backtesting.Strategy.data`
+        `backtesting.backtesting.Strategy.data`
         instance (row; full candlestick bar) becomes available.
         This is the main method where strategy decisions
-        upon data precomputed in `lucit_backtesting.lucit_backtesting.Strategy.init`
+        upon data precomputed in `backtesting.backtesting.Strategy.init`
         take place.
 
-        If you extend composable strategies from `lucit_backtesting.lib`,
+        If you extend composable strategies from `backtesting.lib`,
         make sure to call:
 
             super().next()
@@ -241,22 +241,22 @@ class Strategy(metaclass=ABCMeta):
     def data(self) -> _Data:
         """
         Price data, roughly as passed into
-        `lucit_backtesting.lucit_backtesting.Backtest.__init__`,
+        `backtesting.backtesting.Backtest.__init__`,
         but with two significant exceptions:
 
         * `data` is _not_ a DataFrame, but a custom structure
           that serves customized numpy arrays for reasons of performance
           and convenience. Besides OHLCV columns, `.index` and length,
           it offers `.pip` property, the smallest price unit of change.
-        * Within `lucit_backtesting.lucit_backtesting.Strategy.init`, `data` arrays
+        * Within `backtesting.backtesting.Strategy.init`, `data` arrays
           are available in full length, as passed into
-          `lucit_backtesting.lucit_backtesting.Backtest.__init__`
+          `backtesting.backtesting.Backtest.__init__`
           (for precomputing indicators and such). However, within
-          `lucit_backtesting.lucit_backtesting.Strategy.next`, `data` arrays are
+          `backtesting.backtesting.Strategy.next`, `data` arrays are
           only as long as the current iteration, simulating gradual
           price point revelation. In each call of
-          `lucit_backtesting.lucit_backtesting.Strategy.next` (iteratively called by
-          `lucit_backtesting.lucit_backtesting.Backtest` internally),
+          `backtesting.backtesting.Strategy.next` (iteratively called by
+          `backtesting.backtesting.Backtest` internally),
           the last array value (e.g. `data.Close[-1]`)
           is always the _most recent_ value.
         * If you need data arrays (e.g. `data.Close`) to be indexed
@@ -268,7 +268,7 @@ class Strategy(metaclass=ABCMeta):
 
     @property
     def position(self) -> 'Position':
-        """Instance of `lucit_backtesting.lucit_backtesting.Position`."""
+        """Instance of `backtesting.backtesting.Position`."""
         return self._broker.position
 
     @property
@@ -311,8 +311,8 @@ class _Orders(tuple):
 class Position:
     """
     Currently held asset position, available as
-    `lucit_backtesting.lucit_backtesting.Strategy.position` within
-    `lucit_backtesting.lucit_backtesting.Strategy.next`.
+    `backtesting.backtesting.Strategy.position` within
+    `backtesting.backtesting.Strategy.next`.
     Can be used in boolean contexts, e.g.
 
         if self.position:
@@ -1017,8 +1017,8 @@ class Backtest:
     on particular data.
 
     Upon initialization, call method
-    `lucit_backtesting.lucit_backtesting.Backtest.run` to run a backtest
-    instance, or `lucit_backtesting.lucit_backtesting.Backtest.optimize` to
+    `backtesting.backtesting.Backtest.run` to run a backtest
+    instance, or `backtesting.backtesting.Backtest.optimize` to
     optimize it.
     """
     def __init__(self,
@@ -1047,7 +1047,7 @@ class Backtest:
         DataFrame index can be either a datetime index (timestamps)
         or a monotonic range index (i.e. a sequence of periods).
 
-        `strategy` is a `lucit_backtesting.lucit_backtesting.Strategy`
+        `strategy` is a `backtesting.backtesting.Strategy`
         _subclass_ (not an instance).
 
         `cash` is the initial cash to start with.
@@ -1258,7 +1258,7 @@ class Backtest:
         Returns result `pd.Series` of the best run.
 
         `maximize` is a string key from the
-        `lucit_backtesting.lucit_backtesting.Backtest.run`-returned results series,
+        `backtesting.backtesting.Backtest.run`-returned results series,
         or a function that accepts this series object and returns a number;
         the higher the better. By default, the method maximizes
         Van Tharp's [System Quality Number](https://google.com/search?q=System+Quality+Number).
@@ -1290,7 +1290,7 @@ class Backtest:
         series, an additional `pd.Series` is returned with a multiindex
         of all admissible parameter combinations, which can be further
         inspected or projected onto 2D to plot a heatmap
-        (see `lucit_backtesting.lib.plot_heatmaps()`).
+        (see `backtesting.lib.plot_heatmaps()`).
 
         If `return_optimization` is True and `method = 'skopt'`,
         in addition to result series (and maybe heatmap), return raw
@@ -1564,8 +1564,8 @@ class Backtest:
 
         If `results` is provided, it should be a particular result
         `pd.Series` such as returned by
-        `lucit_backtesting.lucit_backtesting.Backtest.run` or
-        `lucit_backtesting.lucit_backtesting.Backtest.optimize`, otherwise the last
+        `backtesting.backtesting.Backtest.run` or
+        `backtesting.backtesting.Backtest.optimize`, otherwise the last
         run's results are used.
 
         `filename` is the path to save the interactive HTML plot to.
@@ -1630,7 +1630,7 @@ class Backtest:
         [Pandas offset string]: \
             https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects
 
-        [TRADES_AGG]: lib.html#lucit_backtesting.lib.TRADES_AGG
+        [TRADES_AGG]: lib.html#backtesting.lib.TRADES_AGG
 
         If `show_legend` is `True`, the resulting plot graphs will contain
         labeled legends.

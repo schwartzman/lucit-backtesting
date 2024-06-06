@@ -38,7 +38,7 @@ from bokeh.layouts import gridplot
 from bokeh.palettes import Category10
 from bokeh.transform import factor_cmap
 
-from lucit_backtesting._util import _data_period, _as_list, _Indicator
+from backtesting._util import _data_period, _as_list, _Indicator
 
 with open(os.path.join(os.path.dirname(__file__), 'autoscale_cb.js'),
           encoding='utf-8') as _f:
@@ -51,7 +51,7 @@ if IS_JUPYTER_NOTEBOOK:
                   'Setting Bokeh output to notebook. '
                   'This may not work in Jupyter clients without JavaScript '
                   'support (e.g. PyCharm, Spyder IDE). '
-                  'Reset with `lucit_backtesting.set_bokeh_output(notebook=False)`.')
+                  'Reset with `backtesting.set_bokeh_output(notebook=False)`.')
     output_notebook()
 
 

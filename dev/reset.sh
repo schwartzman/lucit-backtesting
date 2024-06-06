@@ -3,14 +3,15 @@
 rm *.log
 rm dev/*.log
 
+rm .eggs -r
 rm build -r
 rm dist -r
 rm *.egg-info -r
 rm stubs -r
 rm out -r
 
-rm lucit_backtesting/*.c
-rm lucit_backtesting/*.html
-rm lucit_backtesting/*.dll
-rm lucit_backtesting/*.so
-rm lucit_backtesting/*.pyi
+rm backtesting/*.c
+rm backtesting/*.html
+rm backtesting/*.dll
+rm backtesting/*.so
+rm backtesting/*.pyi

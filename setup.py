@@ -2,14 +2,14 @@ import os
 import sys
 
 if sys.version_info < (3, 6):
-    sys.exit('ERROR: lucit-lucit_backtesting requires Python 3.6+')
+    sys.exit('ERROR: lucit-backtesting requires Python 3.6+')
 
 
 if __name__ == '__main__':
     from setuptools import setup, find_packages
 
     setup(
-        name='lucit-lucit_backtesting',
+        name='lucit-backtesting',
         description="Backtest trading strategies in Python",
         license='AGPL-3.0',
         url='https://github.com/LUCIT-Systems-and-Development/lucit-backtesting',
@@ -34,7 +34,7 @@ if __name__ == '__main__':
             'setuptools_scm',
         ],
         use_scm_version={
-            'write_to': os.path.join('lucit_backtesting', '_version.py'),
+            'write_to': os.path.join('backtesting', '_version.py'),
         },
         install_requires=[
             'numpy >= 1.17.0',
@@ -61,7 +61,7 @@ if __name__ == '__main__':
                 'mypy',
             ],
         },
-        test_suite="lucit_backtesting.test",
+        test_suite="backtesting.test",
         python_requires='>=3.6',
         author="LUCIT Systems and Development",
         classifiers=[
@@ -79,7 +79,7 @@ if __name__ == '__main__':
             'algorithmic',
             'ashi',
             'backtest',
-            'lucit_backtesting',
+            'backtesting',
             'bitcoin',
             'bokeh',
             'bonds',
