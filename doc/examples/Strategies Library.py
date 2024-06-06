@@ -25,17 +25,17 @@
 #
 # Again, we'll use our helper moving average function.
 
-from backtesting.test import SMA
+from lucit_backtesting.test import SMA
 
 # Part of this software distribution is
-# [`backtesting.lib`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html)
+# [`lucit_backtesting.lib`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html)
 # module that contains various reusable utilities for strategy development.
 # Some of those utilities are composable base strategies we can extend and build upon.
 #
 # We import and extend two of those strategies here:
 # * [`SignalStrategy`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.SignalStrategy)
 #   which decides upon a single signal vector whether to buy into a position, akin to
-#   [vectorized backtesting](https://www.google.com/search?q=vectorized+backtesting)
+#   [vectorized lucit_backtesting](https://www.google.com/search?q=vectorized+backtesting)
 #   engines, and
 # * [`TrailingStrategy`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.TrailingStrategy)
 #   which automatically trails the current price with a stop-loss order some multiple of
@@ -44,7 +44,7 @@ from backtesting.test import SMA
 
 # +
 import pandas as pd
-from backtesting.lib import SignalStrategy, TrailingStrategy
+from lucit_backtesting.lib import SignalStrategy, TrailingStrategy
 
 
 class SmaCross(SignalStrategy,
@@ -85,8 +85,8 @@ class SmaCross(SignalStrategy,
 # Let's see how the example strategy fares on historical Google data.
 
 # +
-from backtesting import Backtest
-from backtesting.test import GOOG
+from lucit_backtesting import Backtest
+from lucit_backtesting.test import GOOG
 
 bt = Backtest(GOOG, SmaCross, commission=.002)
 

@@ -9,7 +9,7 @@ fi
 [ "$GH_PASSWORD" ] || exit 12
 
 sitemap() {
-    WEBSITE='https://kernc.github.io/backtesting.py'
+    WEBSITE='https://lucit-backtesting.docs.lucit.tech'
     find -name '*.html' |
         sed "s,^\.,$WEBSITE," |
         sed 's/index.html$//' |

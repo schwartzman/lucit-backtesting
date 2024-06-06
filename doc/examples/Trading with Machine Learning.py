@@ -23,7 +23,7 @@
 # For this tutorial, we'll use almost a year's worth sample of hourly EUR/USD forex data:
 
 # +
-from backtesting.test import EURUSD, SMA
+from lucit_backtesting.test import EURUSD, SMA
 
 data = EURUSD.copy()
 data
@@ -147,7 +147,7 @@ _ = pd.DataFrame({'y_true': y_test, 'y_pred': y_pred}).plot(figsize=(15, 2), alp
 print('Classification accuracy: ', np.mean(y_test == y_pred))
 # -
 
-# We see the forecasts are all over the place (classification accuracy 42%), but is the model of any use under real backtesting?
+# We see the forecasts are all over the place (classification accuracy 42%), but is the model of any use under real lucit_backtesting?
 #
 # Let's backtest a simple strategy that buys the asset for 20% of available equity with 20:1 leverage whenever the forecast is positive (the price in two days is predicted to go up),
 # and sells under the same terms when the forecast is negative, all the while setting reasonable stop-loss and take-profit levels. Notice also the steady use of
@@ -157,7 +157,7 @@ print('Classification accuracy: ', np.mean(y_test == y_pred))
 # +
 # %%time
 
-from backtesting import Backtest, Strategy
+from lucit_backtesting import Backtest, Strategy
 
 N_TRAIN = 400
 

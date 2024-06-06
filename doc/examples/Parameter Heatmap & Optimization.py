@@ -25,7 +25,7 @@
 # [TA-Lib](https://github.com/mrjbq7/ta-lib) or
 # [Tulipy](https://tulipindicators.org).
 
-from backtesting.test import SMA
+from lucit_backtesting.test import SMA
 
 # Our strategy will be a similar moving average cross-over strategy to the one in
 # [Quick Start User Guide](https://kernc.github.io/backtesting.py/doc/examples/Quick%20Start%20User%20Guide.html),
@@ -35,8 +35,8 @@ from backtesting.test import SMA
 # and two moving averages whose cross-over with daily _close_ prices determine the signal to enter or exit the position.
 
 # +
-from backtesting import Strategy
-from backtesting.lib import crossover
+from lucit_backtesting import Strategy
+from lucit_backtesting.lib import crossover
 
 
 class Sma4Cross(Strategy):
@@ -96,8 +96,8 @@ class Sma4Cross(Strategy):
 # +
 # %%time 
 
-from backtesting import Backtest
-from backtesting.test import GOOG
+from lucit_backtesting import Backtest
+from lucit_backtesting.test import GOOG
 
 
 backtest = Backtest(GOOG, Sma4Cross, commission=.002)
@@ -150,11 +150,11 @@ sns.heatmap(hm[::-1], cmap='viridis')
 #
 # Since our strategy contains several parameters, we might be interested in other relationships between their values.
 # We can use
-# [`backtesting.lib.plot_heatmaps()`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.plot_heatmaps)
+# [`lucit_backtesting.lib.plot_heatmaps()`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.plot_heatmaps)
 # function to plot interactive heatmaps of all parameter combinations simultaneously.
 
 # +
-from backtesting.lib import plot_heatmaps
+from lucit_backtesting.lib import plot_heatmaps
 
 
 plot_heatmaps(heatmap, agg='mean')

@@ -2,7 +2,7 @@
 from backtesting import __version__
 %>
 <p>
-    <a href="https://kernc.github.io/backtesting.py/"><cite>backtesting</cite> ${__version__}</a>
+    <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/"><cite>backtesting</cite> ${__version__}</a>
     <span style="color:#ddd">&#21328;</span>
 </p>
 

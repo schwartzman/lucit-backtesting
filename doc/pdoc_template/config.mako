@@ -7,8 +7,8 @@
     show_type_annotations = False
     show_source_code = False
     google_search_query = '''
-        inurl:kernc.github.io/backtesting.py
-        inurl:github.com/kernc/backtesting.py
+        inurl:lucit-backtesting.docs.lucit.tech
+        inurl:github.com/LUCIT-Systems-and-Development/lucit-backtesting
     '''
 
 

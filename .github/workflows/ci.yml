@@ -39,18 +39,18 @@ jobs:
       - run: pip install -U .[test]
 
       - if: matrix.test-type == 'lint'
-        run: ruff backtesting
+        run: ruff lucit_backtesting
       - if: matrix.test-type == 'lint'
-        run: mypy backtesting
+        run: mypy lucit_backtesting
       - if: matrix.test-type == 'lint'
         env: { BOKEH_BROWSER: none }
-        run: time catchsegv coverage run -m backtesting.test
+        run: time catchsegv coverage run -m lucit_backtesting.test
       - if: matrix.test-type == 'lint'
         run: bash <(curl -s https://codecov.io/bash)
 
       - if: '! matrix.test-type'
         env: { BOKEH_BROWSER: none }
-        run: time catchsegv python -m backtesting.test
+        run: time catchsegv python -m lucit_backtesting.test
 
       - if: matrix.test-type == 'docs'
         run: time catchsegv doc/build.sh

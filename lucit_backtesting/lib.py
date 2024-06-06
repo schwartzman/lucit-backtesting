@@ -123,7 +123,7 @@ def plot_heatmaps(heatmap: pd.Series,
     Plots a grid of heatmaps, one for every pair of parameters in `heatmap`.
 
     `heatmap` is a Series as returned by
-    `backtesting.backtesting.Backtest.optimize` when its parameter
+    `lucit_backtesting.lucit_backtesting.Backtest.optimize` when its parameter
     `return_heatmap=True`.
 
     When projecting the n-dimensional heatmap onto 2D, the values are
@@ -174,8 +174,8 @@ def compute_stats(
     """
     (Re-)compute strategy performance metrics.
 
-    `stats` is the statistics series as returned by `backtesting.backtesting.Backtest.run()`.
-    `data` is OHLC data as passed to the `backtesting.backtesting.Backtest`
+    `stats` is the statistics series as returned by `lucit_backtesting.lucit_backtesting.Backtest.run()`.
+    `data` is OHLC data as passed to the `lucit_backtesting.lucit_backtesting.Backtest`
     the `stats` were obtained in.
     `trades` can be a dataframe subset of `stats._trades` (e.g. only long trades).
     You can also tune `risk_free_rate`, used in calculation of Sharpe and Sortino ratios.
@@ -207,9 +207,9 @@ def resample_apply(rule: str,
     """
     Apply `func` (such as an indicator) to `series`, resampled to
     a time frame specified by `rule`. When called from inside
-    `backtesting.backtesting.Strategy.init`,
+    `lucit_backtesting.lucit_backtesting.Strategy.init`,
     the result (returned) series will be automatically wrapped in
-    `backtesting.backtesting.Strategy.I`
+    `lucit_backtesting.lucit_backtesting.Strategy.I`
     wrapper method.
 
     `rule` is a valid [Pandas offset string] indicating
@@ -221,7 +221,7 @@ http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
     `func` is the indicator function to apply on the resampled series.
 
     `series` is a data series (or array), such as any of the
-    `backtesting.backtesting.Strategy.data` series. Due to pandas
+    `lucit_backtesting.lucit_backtesting.Strategy.data` series. Due to pandas
     resampling limitations, this only works when input series
     has a datetime index.
 
@@ -234,7 +234,7 @@ http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
     but you might prefer another (e.g. `"max"` for peaks, or similar).
 
     Finally, any `*args` and `**kwargs` that are not already eaten by
-    implicit `backtesting.backtesting.Strategy.I` call
+    implicit `lucit_backtesting.lucit_backtesting.Strategy.I` call
     are passed to `func`.
 
     For example, if we have a typical moving average function
@@ -268,7 +268,7 @@ http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
                 # We make a separate function that returns the final
                 # indicator array.
                 def SMA(series, n):
-                    from backtesting.test import SMA
+                    from lucit_backtesting.test import SMA
                     return SMA(series, n).reindex(close.index).ffill()
 
                 # The result equivalent to the short example above:
@@ -341,7 +341,7 @@ def random_ohlc_data(example_data: pd.DataFrame, *,
     Such random data can be effectively used for stress testing trading
     strategy robustness, Monte Carlo simulations, significance testing, etc.
 
-    >>> from backtesting.test import EURUSD
+    >>> from lucit_backtesting.test import EURUSD
     >>> ohlc_generator = random_ohlc_data(EURUSD)
     >>> next(ohlc_generator)  # returns new random data
     ...
@@ -375,9 +375,9 @@ class SignalStrategy(Strategy):
     [tutorials]: index.html#tutorials
 
     To use this helper strategy, subclass it, override its
-    `backtesting.backtesting.Strategy.init` method,
+    `lucit_backtesting.lucit_backtesting.Strategy.init` method,
     and set the signal vector by calling
-    `backtesting.lib.SignalStrategy.set_signal` method from within it.
+    `lucit_backtesting.lib.SignalStrategy.set_signal` method from within it.
 
         class ExampleStrategy(SignalStrategy):
             def init(self):
@@ -399,14 +399,14 @@ class SignalStrategy(Strategy):
 
         A long entry signal is considered present wherever `entry_size`
         is greater than zero, and a short signal wherever `entry_size`
-        is less than zero, following `backtesting.backtesting.Order.size` semantics.
+        is less than zero, following `lucit_backtesting.lucit_backtesting.Order.size` semantics.
 
         If `exit_portion` is provided, a nonzero value closes portion the position
-        (see `backtesting.backtesting.Trade.close()`) in the respective direction
+        (see `lucit_backtesting.lucit_backtesting.Trade.close()`) in the respective direction
         (positive values close long trades, negative short).
 
         If `plot` is `True`, the signal entry/exit indicators are plotted when
-        `backtesting.backtesting.Backtest.plot` is called.
+        `lucit_backtesting.lucit_backtesting.Backtest.plot` is called.
         """
         self.__entry_signal = self.I(  # type: ignore
             lambda: pd.Series(entry_size, dtype=float).replace(0, np.nan),

@@ -15,9 +15,9 @@
 # _Backtesting.py_ Quick Start User Guide
 # =======================
 #
-# This tutorial shows some of the features of *backtesting.py*, a Python framework for [backtesting](https://www.investopedia.com/terms/b/backtesting.asp) trading strategies.
+# This tutorial shows some of the features of *lucit_backtesting.py*, a Python framework for [lucit_backtesting](https://www.investopedia.com/terms/b/backtesting.asp) trading strategies.
 #
-# _Backtesting.py_ is a small and lightweight, blazing fast backtesting framework that uses state-of-the-art Python structures and procedures (Python 3.6+, Pandas, NumPy, Bokeh). It has a very small and simple API that is easy to remember and quickly shape towards meaningful results. The library _doesn't_ really support stock picking or trading strategies that rely on arbitrage or multi-asset portfolio rebalancing; instead, it works with an individual tradeable asset at a time and is best suited for optimizing position entrance and exit signal strategies, decisions upon values of technical indicators, and it's also a versatile interactive trade visualization and statistics tool.
+# _Backtesting.py_ is a small and lightweight, blazing fast lucit_backtesting framework that uses state-of-the-art Python structures and procedures (Python 3.6+, Pandas, NumPy, Bokeh). It has a very small and simple API that is easy to remember and quickly shape towards meaningful results. The library _doesn't_ really support stock picking or trading strategies that rely on arbitrage or multi-asset portfolio rebalancing; instead, it works with an individual tradeable asset at a time and is best suited for optimizing position entrance and exit signal strategies, decisions upon values of technical indicators, and it's also a versatile interactive trade visualization and statistics tool.
 #
 #
 # ## Data
@@ -42,7 +42,7 @@
 
 # +
 # Example OHLC daily data for Google Inc.
-from backtesting.test import GOOG
+from lucit_backtesting.test import GOOG
 
 GOOG.tail()
 # -
@@ -87,8 +87,8 @@ def SMA(values, n):
 # If you find yourself wishing to trade within candlesticks (e.g. daytrading), you instead need to begin with more fine-grained (e.g. hourly) data.
 
 # +
-from backtesting import Strategy
-from backtesting.lib import crossover
+from lucit_backtesting import Strategy
+from lucit_backtesting.lib import crossover
 
 
 class SmaCross(Strategy):
@@ -126,7 +126,7 @@ class SmaCross(Strategy):
 # The wrapper is passed a function (our `SMA` function) along with any arguments to call it with (our _close_ values and the MA lag). Indicators wrapped in this way will be automatically plotted, and their legend strings will be intelligently inferred.
 #
 # In `next()`, we simply check if the faster moving average just crossed over the slower one. If it did and upwards, we close the possible short position and go long; if it did and downwards, we close the open long position and go short. Note, we don't adjust order size, so _Backtesting.py_ assumes _maximal possible position_. We use
-# [`backtesting.lib.crossover()`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.crossover)
+# [`lucit_backtesting.lib.crossover()`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.crossover)
 # function instead of writing more obscure and confusing conditions, such as:
 
 # + magic_args="echo" language="script"
@@ -158,7 +158,7 @@ class SmaCross(Strategy):
 # instance is initialized with OHLC data and a strategy _class_ (see API reference for additional options), and we begin with 10,000 units of cash and set broker's commission to realistic 0.2%.
 
 # +
-from backtesting import Backtest
+from lucit_backtesting import Backtest
 
 bt = Backtest(GOOG, SmaCross, cash=10_000, commission=.002)
 stats = bt.run()

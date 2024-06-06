@@ -67,8 +67,8 @@ def RSI(array, n):
 # We need to provide bars data in the _lowest time frame_ (i.e. daily) and resample it to any higher time frame (i.e. weekly) that our strategy requires.
 
 # +
-from backtesting import Strategy, Backtest
-from backtesting.lib import resample_apply
+from lucit_backtesting import Strategy, Backtest
+from lucit_backtesting.lib import resample_apply
 
 
 class System(Strategy):
@@ -117,7 +117,7 @@ class System(Strategy):
 # Let's see how our strategy fares replayed on nine years of Google stock data.
 
 # +
-from backtesting.test import GOOG
+from lucit_backtesting.test import GOOG
 
 backtest = Backtest(GOOG, System, commission=.002)
 backtest.run()
@@ -138,7 +138,7 @@ backtest.plot()
 # Better. While the strategy doesn't perform as well as simple buy & hold, it does so with significantly lower exposure (time in market).
 #
 # In conclusion, to test strategies on multiple time frames, you need to pass in OHLC data in the lowest time frame, then resample it to higher time frames, apply the indicators, then resample back to the lower time frame, filling in the in-betweens.
-# Which is what the function [`backtesting.lib.resample_apply()`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.resample_apply) does for you.
+# Which is what the function [`lucit_backtesting.lib.resample_apply()`](https://kernc.github.io/backtesting.py/doc/backtesting/lib.html#backtesting.lib.resample_apply) does for you.
 
 # Learn more by exploring further
 # [examples](https://kernc.github.io/backtesting.py/doc/backtesting/index.html#tutorials)

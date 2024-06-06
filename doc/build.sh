@@ -24,7 +24,7 @@ pushd "$DOCROOT/.." >/dev/null
 pdoc3 --html \
      ${IS_RELEASE+--template-dir "$DOCROOT/pdoc_template"} \
      --output-dir "$BUILDROOT" \
-     backtesting
+     lucit_backtesting
 popd >/dev/null
 
 
@@ -44,8 +44,8 @@ echo 'Converting example notebooks → py → HTML'
 echo
 jupytext --test --update --to ipynb "$DOCROOT/examples"/*.py
 { mkdir -p ~/.ipython/profile_default/startup
-  cp -f "$DOCROOT/scripts/ipython_config.py" ~/.ipython/profile_default/startup/99-backtesting-docs.py
-  trap 'rm -f ~/.ipython/profile_default/startup/99-backtesting-docs.py' EXIT; }
+  cp -f "$DOCROOT/scripts/ipython_config.py" ~/.ipython/profile_default/startup/99-lucit_backtesting-docs.py
+  trap 'rm -f ~/.ipython/profile_default/startup/99-lucit_backtesting-docs.py' EXIT; }
 PYTHONWARNINGS='ignore::UserWarning,ignore::RuntimeWarning' \
     time jupyter-nbconvert --execute --to=html \
         --ExecutePreprocessor.timeout=300 \
@@ -71,7 +71,7 @@ echo
 echo 'Testing for broken links'
 echo
 pushd "$BUILDROOT" >/dev/null
-WEBSITE='https://kernc\.github\.io/backtesting\.py'
+WEBSITE='https://kernc\.github\.io/lucit_backtesting\.py'
 grep -PR '<a .*?href=' |
     sed -E "s/:.*?<a .*?href=([\"'])(.*?)/\t\2/g" |
     tr "\"'" '#' |

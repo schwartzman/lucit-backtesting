@@ -1,5 +1,5 @@
 <header>
-    <a class="homelink" rel="home" title="Backtesting.py Home" href="https://kernc.github.io/backtesting.py/">
-        <img src="https://kernc.github.io/backtesting.py/logo.png" alt=""> Backtesting.py
+    <a class="homelink" rel="home" title="lucit-backtesting Home" href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting">
+        <img src="https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/logo/lucit-backtesting.png" alt=""> lucit-backtesting
     </a>
 </header>

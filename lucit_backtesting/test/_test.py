@@ -16,10 +16,10 @@ import numpy as np
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
-from backtesting import Backtest, Strategy
-from backtesting._stats import compute_drawdown_duration_peaks
-from backtesting._util import _Array, _as_str, _Indicator, try_
-from backtesting.lib import (
+from lucit_backtesting import Backtest, Strategy
+from lucit_backtesting._stats import compute_drawdown_duration_peaks
+from lucit_backtesting._util import _Array, _as_str, _Indicator, try_
+from lucit_backtesting.lib import (
     OHLCV_AGG,
     SignalStrategy,
     TrailingStrategy,
@@ -32,7 +32,7 @@ from backtesting.lib import (
     random_ohlc_data,
     resample_apply,
 )
-from backtesting.test import EURUSD, GOOG, SMA
+from lucit_backtesting.test import EURUSD, GOOG, SMA
 
 SHORT_DATA = GOOG.iloc[:20]  # Short data for fast tests with no indicator lag
 
@@ -747,9 +747,9 @@ class TestPlot(TestCase):
     def test_resample(self):
         bt = Backtest(GOOG, SmaCross)
         bt.run()
-        import backtesting._plotting
+        import lucit_backtesting._plotting
         with _tempfile() as f,\
-                patch.object(backtesting._plotting, '_MAX_CANDLES', 10),\
+                patch.object(lucit_backtesting._plotting, '_MAX_CANDLES', 10),\
                 self.assertWarns(UserWarning):
             bt.plot(filename=f, resample=True)
             # Give browser time to open before tempfile is removed

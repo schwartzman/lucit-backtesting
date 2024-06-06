@@ -24,5 +24,5 @@
 
 <style>${homelink()}</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-<link rel="canonical" href="https://kernc.github.io/backtesting.py/doc/${module.url()[:-len('index.html')] if module.is_package else module.url()}">
-<link rel="icon" href="https://kernc.github.io/backtesting.py/logo.png">
+<link rel="canonical" href="https://lucit-backtesting.docs.lucit.tech//${module.url()[:-len('index.html')] if module.is_package else module.url()}">
+<link rel="icon" href="https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/logo/lucit-backtesting.png">
