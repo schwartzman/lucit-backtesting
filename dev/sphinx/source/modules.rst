@@ -1,4 +1,4 @@
-unicorn_binance_websocket_api
+lucit_backtesting
 =============================
 
 .. toctree::

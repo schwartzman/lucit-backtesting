@@ -4,14 +4,14 @@
 # File: sphinx/install_sphinx.sh
 #
 # Part of ‘UNICORN Binance WebSocket API’
-# Project website: https://www.lucit.tech/unicorn-binance-websocket-api.html
-# Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api
-# Documentation: https://unicorn-binance-websocket-api.docs.lucit.tech
-# PyPI: https://pypi.org/project/unicorn-binance-websocket-api
+# Project website: https://www.lucit.tech/lucit-backtesting.html
+# Github: https://github.com/LUCIT-Systems-and-Development/lucit-backtesting
+# Documentation: https://lucit-backtesting.docs.lucit.tech
+# PyPI: https://pypi.org/project/lucit-backtesting
 # LUCIT Online Shop: https://shop.lucit.services/software
 #
 # License: LSOSL - LUCIT Synergetic Open Source License
-# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE
+# https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/blob/master/LICENSE
 #
 # Author: LUCIT Systems and Development
 #
