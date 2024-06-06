@@ -31,8 +31,8 @@ Installation
 To install a developmental version of the project,
 first [fork the project]. Then:
 
-    git clone git@github.com:YOUR_USERNAME/backtesting.py
-    cd backtesting.py
+    git clone git@github.com:YOUR_USERNAME/lucit-backtesting
+    cd lucit-backtesting
     pip3 install -e '.[doc,test,dev]'
 
 [fork the project]: https://help.github.com/articles/fork-a-repo/
@@ -44,12 +44,12 @@ Please write reasonable unit tests for any new / changed functionality.
 See _backtesting/test_ directory for existing tests.
 Before submitting a PR, ensure the tests pass:
 
-    python -m backtesting.test
+    python -m luct-backtesting.test
 
 Also ensure that idiomatic code style is respected by running:
 
     flake8  
-    mypy backtesting
+    mypy luct-backtesting
 
 
 Documentation

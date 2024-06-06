@@ -1,5 +1,5 @@
-Backtesting.py Documentation
-============================
+lucit-backtesting Documentation
+===============================
 After installing documentation dependencies:
 
     pip install .[doc,test]
