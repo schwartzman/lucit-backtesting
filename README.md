@@ -75,7 +75,6 @@ We record most significant statistics this simple system produces on our data, a
 inspection. 
 
 ```
-#!/usr/bin/env python3
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 from backtesting.test import SMA, GOOG
