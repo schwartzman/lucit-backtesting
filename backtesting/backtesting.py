@@ -380,8 +380,9 @@ class Order:
 
     All placed orders are [Good 'Til Canceled].
 
-    [filled]: https://www.investopedia.com/terms/f/fill.asp
-    [Good 'Til Canceled]: https://www.investopedia.com/terms/g/gtc.asp
+    `filled<https://www.investopedia.com/terms/f/fill.asp>`__
+    `Good 'Til Canceled<https://www.investopedia.com/terms/g/gtc.asp>`__
+
     """
     def __init__(self, broker: '_Broker',
                  size: float,
@@ -447,21 +448,20 @@ class Order:
     @property
     def limit(self) -> Optional[float]:
         """
-        Order limit price for [limit orders], or None for [market orders],
-        which are filled at next available price.
+        Order limit price for `limit orders<https://www.investopedia.com/terms/l/limitorder.asp>`__, or None
+        for `market orders<https://www.investopedia.com/terms/m/marketorder.asp>`__, which are filled at next
+        available price.
 
-        [limit orders]: https://www.investopedia.com/terms/l/limitorder.asp
-        [market orders]: https://www.investopedia.com/terms/m/marketorder.asp
         """
         return self.__limit_price
 
     @property
     def stop(self) -> Optional[float]:
         """
-        Order stop price for [stop-limit/stop-market][_] order,
+        Order stop price for
+        `stop-limit/stop-market order<https://www.investopedia.com/terms/s/stoporder.asp>`__,
         otherwise None if no stop was set, or the stop price has already been hit.
 
-        [_]: https://www.investopedia.com/terms/s/stoporder.asp
         """
         return self.__stop_price
 
@@ -512,14 +512,12 @@ class Order:
     @property
     def is_contingent(self):
         """
-        True for [contingent] orders, i.e. [OCO] stop-loss and take-profit bracket orders
-        placed upon an active trade. Remaining contingent orders are canceled when
-        their parent `Trade` is closed.
+        True for `contingent<https://www.investopedia.com/terms/c/contingentorder.asp>`__ orders, i.e.
+        `OCO<https://www.investopedia.com/terms/o/oco.asp>`__ stop-loss and take-profit bracket orders
+        placed upon an active trade. Remaining contingent orders are canceled when their parent `Trade` is closed.
 
         You can modify contingent orders through `Trade.sl` and `Trade.tp`.
 
-        [contingent]: https://www.investopedia.com/terms/c/contingentorder.asp
-        [OCO]: https://www.investopedia.com/terms/o/oco.asp
         """
         return bool(self.__parent_trade)
 
@@ -1070,13 +1068,12 @@ class Backtest:
 
         If `hedging` is `True`, allow trades in both directions simultaneously.
         If `False`, the opposite-facing orders first close existing trades in
-        a [FIFO] manner.
+        a `FIFO<https://www.investopedia.com/terms/n/nfa-compliance-rule-2-43b.asp>`__ manner.
 
         If `exclusive_orders` is `True`, each new order auto-closes the previous
         trade/position, making at most a single trade (long or short) in effect
         at each time.
 
-        [FIFO]: https://www.investopedia.com/terms/n/nfa-compliance-rule-2-43b.asp
         """
 
         if not (isinstance(strategy, type) and issubclass(strategy, Strategy)):
@@ -1262,17 +1259,15 @@ class Backtest:
         `backtesting.backtesting.Backtest.run`-returned results series,
         or a function that accepts this series object and returns a number;
         the higher the better. By default, the method maximizes
-        Van Tharp's [System Quality Number](https://google.com/search?q=System+Quality+Number).
+        Van Tharp's `System Quality Number<https://google.com/search?q=System+Quality+Number>`__.
 
         `method` is the optimization method. Currently two methods are supported:
 
         * `"grid"` which does an exhaustive (or randomized) search over the
           cartesian product of parameter combinations, and
         * `"skopt"` which finds close-to-optimal strategy parameters using
-          [model-based optimization], making at most `max_tries` evaluations.
-
-        [model-based optimization]: \
-            https://scikit-optimize.github.io/stable/auto_examples/bayesian-optimization.html
+          `model-based optimization<https://scikit-optimize.github.io/stable/auto_examples/bayesian-optimization.html>`__
+          , making at most `max_tries` evaluations.
 
         `max_tries` is the maximal number of strategy runs to perform.
         If `method="grid"`, this results in randomized grid search.
@@ -1295,14 +1290,10 @@ class Backtest:
 
         If `return_optimization` is True and `method = 'skopt'`,
         in addition to result series (and maybe heatmap), return raw
-        [`scipy.optimize.OptimizeResult`][OptimizeResult] for further
-        inspection, e.g. with [scikit-optimize]\
-        [plotting tools].
-
-        [OptimizeResult]: \
-            https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html
-        [scikit-optimize]: https://scikit-optimize.github.io
-        [plotting tools]: https://scikit-optimize.github.io/stable/modules/plots.html
+        [`scipy.optimize.OptimizeResult`]
+        `OptimizeResult<https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html>`__ for
+        further inspection, e.g. with `scikit-optimize<https://scikit-optimize.github.io>`__\
+        `plotting tools<https://scikit-optimize.github.io/stable/modules/plots.html>`__.
 
         If you want reproducible optimization results, set `random_state`
         to a fixed integer random seed.
@@ -1608,8 +1599,9 @@ class Backtest:
         over the original candlestick chart. Default downsampling rule is:
         monthly for daily data, daily for hourly data, hourly for minute data,
         and minute for (sub-)second data.
-        `superimpose` can also be a valid [Pandas offset string],
-        such as `'5T'` or `'5min'`, in which case this frequency will be
+        `superimpose` can also be a valid
+        `Pandas offset string<https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects>`__
+        , such as `'5T'` or `'5min'`, in which case this frequency will be
         used to superimpose.
         Note, this only works for data with a datetime index.
 
@@ -1619,19 +1611,15 @@ class Backtest:
         improve plot's interactive performance and avoid browser's
         `Javascript Error: Maximum call stack size exceeded` or similar.
         Equity & dropdown curves and individual trades data is,
-        likewise, [reasonably _aggregated_][TRADES_AGG].
-        `resample` can also be a [Pandas offset string],
-        such as `'5T'` or `'5min'`, in which case this frequency will be
+        likewise, [reasonably _aggregated_] `TRADES_AGG<lib.html#backtesting.lib.TRADES_AGG>`__.
+        `resample` can also be a
+        `Pandas offset string<https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects>`__
+        , such as `'5T'` or `'5min'`, in which case this frequency will be
         used to resample, overriding above numeric limitation.
         Note, all this only works for data with a datetime index.
 
         If `reverse_indicators` is `True`, the indicators below the OHLC chart
         are plotted in reverse order of declaration.
-
-        [Pandas offset string]: \
-            https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects
-
-        [TRADES_AGG]: lib.html#backtesting.lib.TRADES_AGG
 
         If `show_legend` is `True`, the resulting plot graphs will contain
         labeled legends.

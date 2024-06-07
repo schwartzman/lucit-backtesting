@@ -301,15 +301,15 @@ Returns result <cite>pd.Series</cite> of the best run.</p>
 <cite>backtesting.backtesting.Backtest.run</cite>-returned results series,
 or a function that accepts this series object and returns a number;
 the higher the better. By default, the method maximizes
-Van Tharp’s [System Quality Number](<a class="reference external" href="https://google.com/search?q=System+Quality+Number">https://google.com/search?q=System+Quality+Number</a>).</p>
+Van Tharp’s <a href="#id1"><span class="problematic" id="id2">`System Quality Number&lt;https://google.com/search?q=System+Quality+Number&gt;`__</span></a>.</p>
 <p><cite>method</cite> is the optimization method. Currently two methods are supported:</p>
 <ul class="simple">
 <li><p><cite>“grid”</cite> which does an exhaustive (or randomized) search over the
 cartesian product of parameter combinations, and</p></li>
 <li><p><cite>“skopt”</cite> which finds close-to-optimal strategy parameters using
-[model-based optimization], making at most <cite>max_tries</cite> evaluations.</p></li>
+<a href="#id1"><span class="problematic" id="id3">`model-based optimization&lt;https://scikit-optimize.github.io/stable/auto_examples/bayesian-optimization.html&gt;`__</span></a>
+, making at most <cite>max_tries</cite> evaluations.</p></li>
 </ul>
-<p>[model-based optimization]:             <a class="reference external" href="https://scikit-optimize.github.io/stable/auto_examples/bayesian-optimization.html">https://scikit-optimize.github.io/stable/auto_examples/bayesian-optimization.html</a></p>
 <p><cite>max_tries</cite> is the maximal number of strategy runs to perform.
 If <cite>method=”grid”</cite>, this results in randomized grid search.
 If <cite>max_tries</cite> is a floating value between (0, 1], this sets the
@@ -328,11 +328,9 @@ inspected or projected onto 2D to plot a heatmap
 (see <cite>backtesting.lib.plot_heatmaps()</cite>).</p>
 <p>If <cite>return_optimization</cite> is True and <cite>method = ‘skopt’</cite>,
 in addition to result series (and maybe heatmap), return raw
-[<cite>scipy.optimize.OptimizeResult</cite>][OptimizeResult] for further
-inspection, e.g. with [scikit-optimize]        [plotting tools].</p>
-<p>[OptimizeResult]:             <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html</a>
-[scikit-optimize]: <a class="reference external" href="https://scikit-optimize.github.io">https://scikit-optimize.github.io</a>
-[plotting tools]: <a class="reference external" href="https://scikit-optimize.github.io/stable/modules/plots.html">https://scikit-optimize.github.io/stable/modules/plots.html</a></p>
+[<cite>scipy.optimize.OptimizeResult</cite>]
+<a href="#id1"><span class="problematic" id="id4">`OptimizeResult&lt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html&gt;`__</span></a> for
+further inspection, e.g. with <a href="#id1"><span class="problematic" id="id5">`scikit-optimize&lt;https://scikit-optimize.github.io&gt;`__</span></a>        <a href="#id1"><span class="problematic" id="id6">`plotting tools&lt;https://scikit-optimize.github.io/stable/modules/plots.html&gt;`__</span></a>.</p>
 <p>If you want reproducible optimization results, set <cite>random_state</cite>
 to a fixed integer random seed.</p>
 <p>Additional keyword arguments represent strategy arguments with
@@ -385,8 +383,9 @@ with return percent, not absolute cash-equivalent values.</p>
 over the original candlestick chart. Default downsampling rule is:
 monthly for daily data, daily for hourly data, hourly for minute data,
 and minute for (sub-)second data.
-<cite>superimpose</cite> can also be a valid [Pandas offset string],
-such as <cite>‘5T’</cite> or <cite>‘5min’</cite>, in which case this frequency will be
+<cite>superimpose</cite> can also be a valid
+<a href="#id1"><span class="problematic" id="id7">`Pandas offset string&lt;https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects&gt;`__</span></a>
+, such as <cite>‘5T’</cite> or <cite>‘5min’</cite>, in which case this frequency will be
 used to superimpose.
 Note, this only works for data with a datetime index.</p>
 <p>If <cite>resample</cite> is <cite>True</cite>, the OHLC data is resampled in a way that
@@ -395,15 +394,14 @@ This may, in situations of overabundant data,
 improve plot’s interactive performance and avoid browser’s
 <cite>Javascript Error: Maximum call stack size exceeded</cite> or similar.
 Equity &amp; dropdown curves and individual trades data is,
-likewise, [reasonably _aggregated_][TRADES_AGG].
-<cite>resample</cite> can also be a [Pandas offset string],
-such as <cite>‘5T’</cite> or <cite>‘5min’</cite>, in which case this frequency will be
+likewise, [reasonably _aggregated_] <a href="#id1"><span class="problematic" id="id8">`TRADES_AGG&lt;lib.html#backtesting.lib.TRADES_AGG&gt;`__</span></a>.
+<cite>resample</cite> can also be a
+<a href="#id1"><span class="problematic" id="id9">`Pandas offset string&lt;https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects&gt;`__</span></a>
+, such as <cite>‘5T’</cite> or <cite>‘5min’</cite>, in which case this frequency will be
 used to resample, overriding above numeric limitation.
 Note, all this only works for data with a datetime index.</p>
 <p>If <cite>reverse_indicators</cite> is <cite>True</cite>, the indicators below the OHLC chart
 are plotted in reverse order of declaration.</p>
-<p>[Pandas offset string]:             <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects</a></p>
-<p>[TRADES_AGG]: lib.html#backtesting.lib.TRADES_AGG</p>
 <p>If <cite>show_legend</cite> is <cite>True</cite>, the resulting plot graphs will contain
 labeled legends.</p>
 <p>If <cite>open_browser</cite> is <cite>True</cite>, the resulting <cite>filename</cite> will be
@@ -472,8 +470,8 @@ Query existing orders through <cite>Strategy.orders</cite>.</p>
 <p>If you wish to modify aspects of a placed but not yet filled order,
 cancel it and place a new one instead.</p>
 <p>All placed orders are [Good ‘Til Canceled].</p>
-<p>[filled]: <a class="reference external" href="https://www.investopedia.com/terms/f/fill.asp">https://www.investopedia.com/terms/f/fill.asp</a>
-[Good ‘Til Canceled]: <a class="reference external" href="https://www.investopedia.com/terms/g/gtc.asp">https://www.investopedia.com/terms/g/gtc.asp</a></p>
+<p><a href="#id1"><span class="problematic" id="id10">`filled&lt;https://www.investopedia.com/terms/f/fill.asp&gt;`__</span></a>
+<a href="#id1"><span class="problematic" id="id11">`Good 'Til Canceled&lt;https://www.investopedia.com/terms/g/gtc.asp&gt;`__</span></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="backtesting.backtesting.Order.cancel">
 <span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/backtesting/backtesting.html#Order.cancel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#backtesting.backtesting.Order.cancel" title="Link to this definition">¶</a></dt>
@@ -483,12 +481,10 @@ cancel it and place a new one instead.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="backtesting.backtesting.Order.is_contingent">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_contingent</span></span><a class="headerlink" href="#backtesting.backtesting.Order.is_contingent" title="Link to this definition">¶</a></dt>
-<dd><p>True for [contingent] orders, i.e. [OCO] stop-loss and take-profit bracket orders
-placed upon an active trade. Remaining contingent orders are canceled when
-their parent <cite>Trade</cite> is closed.</p>
+<dd><p>True for <a href="#id1"><span class="problematic" id="id12">`contingent&lt;https://www.investopedia.com/terms/c/contingentorder.asp&gt;`__</span></a> orders, i.e.
+<a href="#id1"><span class="problematic" id="id13">`OCO&lt;https://www.investopedia.com/terms/o/oco.asp&gt;`__</span></a> stop-loss and take-profit bracket orders
+placed upon an active trade. Remaining contingent orders are canceled when their parent <cite>Trade</cite> is closed.</p>
 <p>You can modify contingent orders through <cite>Trade.sl</cite> and <cite>Trade.tp</cite>.</p>
-<p>[contingent]: <a class="reference external" href="https://www.investopedia.com/terms/c/contingentorder.asp">https://www.investopedia.com/terms/c/contingentorder.asp</a>
-[OCO]: <a class="reference external" href="https://www.investopedia.com/terms/o/oco.asp">https://www.investopedia.com/terms/o/oco.asp</a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -506,10 +502,9 @@ their parent <cite>Trade</cite> is closed.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="backtesting.backtesting.Order.limit">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">limit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#backtesting.backtesting.Order.limit" title="Link to this definition">¶</a></dt>
-<dd><p>Order limit price for [limit orders], or None for [market orders],
-which are filled at next available price.</p>
-<p>[limit orders]: <a class="reference external" href="https://www.investopedia.com/terms/l/limitorder.asp">https://www.investopedia.com/terms/l/limitorder.asp</a>
-[market orders]: <a class="reference external" href="https://www.investopedia.com/terms/m/marketorder.asp">https://www.investopedia.com/terms/m/marketorder.asp</a></p>
+<dd><p>Order limit price for <a href="#id1"><span class="problematic" id="id14">`limit orders&lt;https://www.investopedia.com/terms/l/limitorder.asp&gt;`__</span></a>, or None
+for <a href="#id1"><span class="problematic" id="id15">`market orders&lt;https://www.investopedia.com/terms/m/marketorder.asp&gt;`__</span></a>, which are filled at next
+available price.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -537,9 +532,9 @@ See also <cite>Trade.sl</cite>.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="backtesting.backtesting.Order.stop">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#backtesting.backtesting.Order.stop" title="Link to this definition">¶</a></dt>
-<dd><p>Order stop price for [stop-limit/stop-market][_] order,
+<dd><p>Order stop price for
+<a href="#id1"><span class="problematic" id="id16">`stop-limit/stop-market order&lt;https://www.investopedia.com/terms/s/stoporder.asp&gt;`__</span></a>,
 otherwise None if no stop was set, or the stop price has already been hit.</p>
-<p>[_]: <a class="reference external" href="https://www.investopedia.com/terms/s/stoporder.asp">https://www.investopedia.com/terms/s/stoporder.asp</a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -889,8 +884,7 @@ composable strategy classes for reuse.</p>
 <p>Intended for simple missing-link procedures, not reinventing
 of better-suited, state-of-the-art, fast libraries,
 such as TA-Lib, Tulipy, PyAlgoTrade, NumPy, SciPy …</p>
-<p>Please raise ideas for additions to this collection on the [issue tracker].</p>
-<p>[issue tracker]: <a class="reference external" href="https://github.com/kernc/backtesting.py">https://github.com/kernc/backtesting.py</a></p>
+<p>Please raise ideas for additions to this collection on the <a href="#id1"><span class="problematic" id="id17">`issue tracker&lt;https://github.com/kernc/backtesting.py&gt;`__</span></a>.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="backtesting.lib.OHLCV_AGG">
 <span class="sig-prename descclassname"><span class="pre">backtesting.lib.</span></span><span class="sig-name descname"><span class="pre">OHLCV_AGG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Close':</span> <span class="pre">'last',</span> <span class="pre">'High':</span> <span class="pre">'max',</span> <span class="pre">'Low':</span> <span class="pre">'min',</span> <span class="pre">'Open':</span> <span class="pre">'first',</span> <span class="pre">'Volume':</span> <span class="pre">'sum'}</span></em><a class="headerlink" href="#backtesting.lib.OHLCV_AGG" title="Link to this definition">¶</a></dt>
@@ -906,10 +900,9 @@ e.g.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">backtesting.lib.</span></span><span class="sig-name descname"><span class="pre">SignalStrategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">broker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/backtesting/lib.html#SignalStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#backtesting.lib.SignalStrategy" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#backtesting.backtesting.Strategy" title="backtesting.backtesting.Strategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Strategy</span></code></a></p>
 <p>A simple helper strategy that operates on position entry/exit signals.
-This makes the backtest of the strategy simulate a [vectorized backtest].
-See [tutorials] for usage examples.</p>
-<p>[vectorized backtest]: <a class="reference external" href="https://www.google.com/search?q=vectorized+backtest">https://www.google.com/search?q=vectorized+backtest</a>
-[tutorials]: index.html#tutorials</p>
+This makes the backtest of the strategy simulate a
+<a href="#id1"><span class="problematic" id="id18">`vectorized backtest&lt;https://www.google.com/search?q=vectorized+backtest&gt;`__</span></a>.
+See <a href="#id1"><span class="problematic" id="id19">`tutorials&lt;index.html#tutorials&gt;`__</span></a> for usage examples.</p>
 <p>To use this helper strategy, subclass it, override its
 <cite>backtesting.backtesting.Strategy.init</cite> method,
 and set the signal vector by calling
@@ -978,8 +971,7 @@ e.g.</p>
 <p>A strategy with automatic trailing stop-loss, trailing the current
 price at distance of some multiple of average true range (ATR). Call
 <cite>TrailingStrategy.set_trailing_sl()</cite> to set said multiple
-(<cite>6</cite> by default). See [tutorials] for usage examples.</p>
-<p>[tutorials]: index.html#tutorials</p>
+(<cite>6</cite> by default). See <a href="#id1"><span class="problematic" id="id20">`tutorials&lt;index.html#tutorials&gt;`__</span></a> for usage examples.</p>
 <p>Remember to call <cite>super().init()</cite> and <cite>super().next()</cite> in your
 overridden methods.</p>
 <dl class="py method">
@@ -1090,7 +1082,7 @@ You can also tune <cite>risk_free_rate</cite>, used in calculation of Sharpe and
 aggregated by ‘max’ function by default. This can be tweaked
 with <cite>agg</cite> parameter, which accepts any argument pandas knows
 how to aggregate by.</p>
-<p>[plot_objective]:         <a class="reference external" href="https://scikit-optimize.github.io/stable/modules/plots.html#plot-objective">https://scikit-optimize.github.io/stable/modules/plots.html#plot-objective</a></p>
+<p><a href="#id1"><span class="problematic" id="id21">`plot_objective&lt;https://scikit-optimize.github.io/stable/modules/plots.html#plot-objective&gt;`__</span></a></p>
 </dd></dl>
 
 <dl class="py function">
@@ -1138,9 +1130,9 @@ a time frame specified by <cite>rule</cite>. When called from inside
 the result (returned) series will be automatically wrapped in
 <cite>backtesting.backtesting.Strategy.I</cite>
 wrapper method.</p>
-<p><cite>rule</cite> is a valid [Pandas offset string] indicating
+<p><cite>rule</cite> is a valid
+<a href="#id1"><span class="problematic" id="id22">`Pandas offset string&lt;http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases&gt;`__</span></a> indicating
 a time frame to resample <cite>series</cite> to.</p>
-<p>[Pandas offset string]: <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases">http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases</a></p>
 <p><cite>func</cite> is the indicator function to apply on the resampled series.</p>
 <p><cite>series</cite> is a data series (or array), such as any of the
 <cite>backtesting.backtesting.Strategy.data</cite> series. Due to pandas
@@ -1468,7 +1460,7 @@ itself find their way back to the community.</p>
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2024-2024, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Jun 06 2024 at 23:18 (CET).
+    Last updated on Jun 07 2024 at 09:28 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

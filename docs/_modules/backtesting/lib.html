@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>backtesting.lib &#8212; lucit-backtesting 0.4.4 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backtesting.lib &#8212; lucit-backtesting 1.0.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../../_static/pydoctheme.css?v=fdf8e9ae" />
@@ -152,9 +152,7 @@
 <span class="sd">of better-suited, state-of-the-art, fast libraries,</span>
 <span class="sd">such as TA-Lib, Tulipy, PyAlgoTrade, NumPy, SciPy ...</span>
 
-<span class="sd">Please raise ideas for additions to this collection on the [issue tracker].</span>
-
-<span class="sd">[issue tracker]: https://github.com/kernc/backtesting.py</span>
+<span class="sd">Please raise ideas for additions to this collection on the `issue tracker&lt;https://github.com/kernc/backtesting.py&gt;`__.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
@@ -288,8 +286,8 @@
 <span class="sd">    with `agg` parameter, which accepts any argument pandas knows</span>
 <span class="sd">    how to aggregate by.</span>
 
-<span class="sd">    [plot_objective]: \</span>
-<span class="sd">        https://scikit-optimize.github.io/stable/modules/plots.html#plot-objective</span>
+<span class="sd">    `plot_objective&lt;https://scikit-optimize.github.io/stable/modules/plots.html#plot-objective&gt;`__</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># todo:</span>
     <span class="c1">#         Lay heatmaps out lower-triangular instead of in a simple grid.</span>
@@ -377,10 +375,9 @@
 <span class="sd">    `backtesting.backtesting.Strategy.I`</span>
 <span class="sd">    wrapper method.</span>
 
-<span class="sd">    `rule` is a valid [Pandas offset string] indicating</span>
+<span class="sd">    `rule` is a valid</span>
+<span class="sd">    `Pandas offset string&lt;http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases&gt;`__ indicating</span>
 <span class="sd">    a time frame to resample `series` to.</span>
-
-<span class="sd">    [Pandas offset string]: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases</span>
 
 <span class="sd">    `func` is the indicator function to apply on the resampled series.</span>
 
@@ -542,11 +539,9 @@
 <span class="k">class</span> <span class="nc">SignalStrategy</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A simple helper strategy that operates on position entry/exit signals.</span>
-<span class="sd">    This makes the backtest of the strategy simulate a [vectorized backtest].</span>
-<span class="sd">    See [tutorials] for usage examples.</span>
-
-<span class="sd">    [vectorized backtest]: https://www.google.com/search?q=vectorized+backtest</span>
-<span class="sd">    [tutorials]: index.html#tutorials</span>
+<span class="sd">    This makes the backtest of the strategy simulate a</span>
+<span class="sd">    `vectorized backtest&lt;https://www.google.com/search?q=vectorized+backtest&gt;`__.</span>
+<span class="sd">    See `tutorials&lt;index.html#tutorials&gt;`__ for usage examples.</span>
 
 <span class="sd">    To use this helper strategy, subclass it, override its</span>
 <span class="sd">    `backtesting.backtesting.Strategy.init` method,</span>
@@ -625,9 +620,7 @@
 <span class="sd">    A strategy with automatic trailing stop-loss, trailing the current</span>
 <span class="sd">    price at distance of some multiple of average true range (ATR). Call</span>
 <span class="sd">    `TrailingStrategy.set_trailing_sl()` to set said multiple</span>
-<span class="sd">    (`6` by default). See [tutorials] for usage examples.</span>
-
-<span class="sd">    [tutorials]: index.html#tutorials</span>
+<span class="sd">    (`6` by default). See `tutorials&lt;index.html#tutorials&gt;`__ for usage examples.</span>
 
 <span class="sd">    Remember to call `super().init()` and `super().next()` in your</span>
 <span class="sd">    overridden methods.</span>
@@ -802,7 +795,7 @@
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2024-2024, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Jun 06 2024 at 21:29 (CET).
+    Last updated on Jun 07 2024 at 09:28 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

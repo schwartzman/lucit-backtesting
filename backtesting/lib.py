@@ -6,9 +6,7 @@ Intended for simple missing-link procedures, not reinventing
 of better-suited, state-of-the-art, fast libraries,
 such as TA-Lib, Tulipy, PyAlgoTrade, NumPy, SciPy ...
 
-Please raise ideas for additions to this collection on the [issue tracker].
-
-[issue tracker]: https://github.com/kernc/backtesting.py
+Please raise ideas for additions to this collection on the `issue tracker<https://github.com/kernc/backtesting.py>`__.
 """
 
 from collections import OrderedDict
@@ -131,8 +129,8 @@ def plot_heatmaps(heatmap: pd.Series,
     with `agg` parameter, which accepts any argument pandas knows
     how to aggregate by.
 
-    [plot_objective]: \
-        https://scikit-optimize.github.io/stable/modules/plots.html#plot-objective
+    `plot_objective<https://scikit-optimize.github.io/stable/modules/plots.html#plot-objective>`__
+
     """
     # todo:
     #         Lay heatmaps out lower-triangular instead of in a simple grid.
@@ -211,10 +209,9 @@ def resample_apply(rule: str,
     `backtesting.backtesting.Strategy.I`
     wrapper method.
 
-    `rule` is a valid [Pandas offset string] indicating
+    `rule` is a valid
+    `Pandas offset string<http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases>`__ indicating
     a time frame to resample `series` to.
-
-    [Pandas offset string]: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
 
     `func` is the indicator function to apply on the resampled series.
 
@@ -370,11 +367,9 @@ def random_ohlc_data(example_data: pd.DataFrame, *,
 class SignalStrategy(Strategy):
     """
     A simple helper strategy that operates on position entry/exit signals.
-    This makes the backtest of the strategy simulate a [vectorized backtest].
-    See [tutorials] for usage examples.
-
-    [vectorized backtest]: https://www.google.com/search?q=vectorized+backtest
-    [tutorials]: index.html#tutorials
+    This makes the backtest of the strategy simulate a
+    `vectorized backtest<https://www.google.com/search?q=vectorized+backtest>`__.
+    See `tutorials<index.html#tutorials>`__ for usage examples.
 
     To use this helper strategy, subclass it, override its
     `backtesting.backtesting.Strategy.init` method,
@@ -444,9 +439,7 @@ class TrailingStrategy(Strategy):
     A strategy with automatic trailing stop-loss, trailing the current
     price at distance of some multiple of average true range (ATR). Call
     `TrailingStrategy.set_trailing_sl()` to set said multiple
-    (`6` by default). See [tutorials] for usage examples.
-
-    [tutorials]: index.html#tutorials
+    (`6` by default). See `tutorials<index.html#tutorials>`__ for usage examples.
 
     Remember to call `super().init()` and `super().next()` in your
     overridden methods.

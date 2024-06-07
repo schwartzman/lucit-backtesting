@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>backtesting.backtesting &#8212; lucit-backtesting 0.4.4 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backtesting.backtesting &#8212; lucit-backtesting 1.0.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../../_static/pydoctheme.css?v=fdf8e9ae" />
@@ -552,8 +552,9 @@
 
 <span class="sd">    All placed orders are [Good &#39;Til Canceled].</span>
 
-<span class="sd">    [filled]: https://www.investopedia.com/terms/f/fill.asp</span>
-<span class="sd">    [Good &#39;Til Canceled]: https://www.investopedia.com/terms/g/gtc.asp</span>
+<span class="sd">    `filled&lt;https://www.investopedia.com/terms/f/fill.asp&gt;`__</span>
+<span class="sd">    `Good &#39;Til Canceled&lt;https://www.investopedia.com/terms/g/gtc.asp&gt;`__</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broker</span><span class="p">:</span> <span class="s1">&#39;_Broker&#39;</span><span class="p">,</span>
                  <span class="n">size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -622,21 +623,20 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Order limit price for [limit orders], or None for [market orders],</span>
-<span class="sd">        which are filled at next available price.</span>
+<span class="sd">        Order limit price for `limit orders&lt;https://www.investopedia.com/terms/l/limitorder.asp&gt;`__, or None</span>
+<span class="sd">        for `market orders&lt;https://www.investopedia.com/terms/m/marketorder.asp&gt;`__, which are filled at next</span>
+<span class="sd">        available price.</span>
 
-<span class="sd">        [limit orders]: https://www.investopedia.com/terms/l/limitorder.asp</span>
-<span class="sd">        [market orders]: https://www.investopedia.com/terms/m/marketorder.asp</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__limit_price</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Order stop price for [stop-limit/stop-market][_] order,</span>
+<span class="sd">        Order stop price for</span>
+<span class="sd">        `stop-limit/stop-market order&lt;https://www.investopedia.com/terms/s/stoporder.asp&gt;`__,</span>
 <span class="sd">        otherwise None if no stop was set, or the stop price has already been hit.</span>
 
-<span class="sd">        [_]: https://www.investopedia.com/terms/s/stoporder.asp</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stop_price</span>
 
@@ -687,14 +687,12 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">is_contingent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        True for [contingent] orders, i.e. [OCO] stop-loss and take-profit bracket orders</span>
-<span class="sd">        placed upon an active trade. Remaining contingent orders are canceled when</span>
-<span class="sd">        their parent `Trade` is closed.</span>
+<span class="sd">        True for `contingent&lt;https://www.investopedia.com/terms/c/contingentorder.asp&gt;`__ orders, i.e.</span>
+<span class="sd">        `OCO&lt;https://www.investopedia.com/terms/o/oco.asp&gt;`__ stop-loss and take-profit bracket orders</span>
+<span class="sd">        placed upon an active trade. Remaining contingent orders are canceled when their parent `Trade` is closed.</span>
 
 <span class="sd">        You can modify contingent orders through `Trade.sl` and `Trade.tp`.</span>
 
-<span class="sd">        [contingent]: https://www.investopedia.com/terms/c/contingentorder.asp</span>
-<span class="sd">        [OCO]: https://www.investopedia.com/terms/o/oco.asp</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__parent_trade</span><span class="p">)</span></div>
 
@@ -1254,13 +1252,12 @@
 
 <span class="sd">        If `hedging` is `True`, allow trades in both directions simultaneously.</span>
 <span class="sd">        If `False`, the opposite-facing orders first close existing trades in</span>
-<span class="sd">        a [FIFO] manner.</span>
+<span class="sd">        a `FIFO&lt;https://www.investopedia.com/terms/n/nfa-compliance-rule-2-43b.asp&gt;`__ manner.</span>
 
 <span class="sd">        If `exclusive_orders` is `True`, each new order auto-closes the previous</span>
 <span class="sd">        trade/position, making at most a single trade (long or short) in effect</span>
 <span class="sd">        at each time.</span>
 
-<span class="sd">        [FIFO]: https://www.investopedia.com/terms/n/nfa-compliance-rule-2-43b.asp</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">strategy</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">strategy</span><span class="p">,</span> <span class="n">Strategy</span><span class="p">)):</span>
@@ -1451,17 +1448,15 @@
 <span class="sd">        `backtesting.backtesting.Backtest.run`-returned results series,</span>
 <span class="sd">        or a function that accepts this series object and returns a number;</span>
 <span class="sd">        the higher the better. By default, the method maximizes</span>
-<span class="sd">        Van Tharp&#39;s [System Quality Number](https://google.com/search?q=System+Quality+Number).</span>
+<span class="sd">        Van Tharp&#39;s `System Quality Number&lt;https://google.com/search?q=System+Quality+Number&gt;`__.</span>
 
 <span class="sd">        `method` is the optimization method. Currently two methods are supported:</span>
 
 <span class="sd">        * `&quot;grid&quot;` which does an exhaustive (or randomized) search over the</span>
 <span class="sd">          cartesian product of parameter combinations, and</span>
 <span class="sd">        * `&quot;skopt&quot;` which finds close-to-optimal strategy parameters using</span>
-<span class="sd">          [model-based optimization], making at most `max_tries` evaluations.</span>
-
-<span class="sd">        [model-based optimization]: \</span>
-<span class="sd">            https://scikit-optimize.github.io/stable/auto_examples/bayesian-optimization.html</span>
+<span class="sd">          `model-based optimization&lt;https://scikit-optimize.github.io/stable/auto_examples/bayesian-optimization.html&gt;`__</span>
+<span class="sd">          , making at most `max_tries` evaluations.</span>
 
 <span class="sd">        `max_tries` is the maximal number of strategy runs to perform.</span>
 <span class="sd">        If `method=&quot;grid&quot;`, this results in randomized grid search.</span>
@@ -1484,14 +1479,10 @@
 
 <span class="sd">        If `return_optimization` is True and `method = &#39;skopt&#39;`,</span>
 <span class="sd">        in addition to result series (and maybe heatmap), return raw</span>
-<span class="sd">        [`scipy.optimize.OptimizeResult`][OptimizeResult] for further</span>
-<span class="sd">        inspection, e.g. with [scikit-optimize]\</span>
-<span class="sd">        [plotting tools].</span>
-
-<span class="sd">        [OptimizeResult]: \</span>
-<span class="sd">            https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html</span>
-<span class="sd">        [scikit-optimize]: https://scikit-optimize.github.io</span>
-<span class="sd">        [plotting tools]: https://scikit-optimize.github.io/stable/modules/plots.html</span>
+<span class="sd">        [`scipy.optimize.OptimizeResult`]</span>
+<span class="sd">        `OptimizeResult&lt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html&gt;`__ for</span>
+<span class="sd">        further inspection, e.g. with `scikit-optimize&lt;https://scikit-optimize.github.io&gt;`__\</span>
+<span class="sd">        `plotting tools&lt;https://scikit-optimize.github.io/stable/modules/plots.html&gt;`__.</span>
 
 <span class="sd">        If you want reproducible optimization results, set `random_state`</span>
 <span class="sd">        to a fixed integer random seed.</span>
@@ -1800,8 +1791,9 @@
 <span class="sd">        over the original candlestick chart. Default downsampling rule is:</span>
 <span class="sd">        monthly for daily data, daily for hourly data, hourly for minute data,</span>
 <span class="sd">        and minute for (sub-)second data.</span>
-<span class="sd">        `superimpose` can also be a valid [Pandas offset string],</span>
-<span class="sd">        such as `&#39;5T&#39;` or `&#39;5min&#39;`, in which case this frequency will be</span>
+<span class="sd">        `superimpose` can also be a valid</span>
+<span class="sd">        `Pandas offset string&lt;https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects&gt;`__</span>
+<span class="sd">        , such as `&#39;5T&#39;` or `&#39;5min&#39;`, in which case this frequency will be</span>
 <span class="sd">        used to superimpose.</span>
 <span class="sd">        Note, this only works for data with a datetime index.</span>
 
@@ -1811,19 +1803,15 @@
 <span class="sd">        improve plot&#39;s interactive performance and avoid browser&#39;s</span>
 <span class="sd">        `Javascript Error: Maximum call stack size exceeded` or similar.</span>
 <span class="sd">        Equity &amp; dropdown curves and individual trades data is,</span>
-<span class="sd">        likewise, [reasonably _aggregated_][TRADES_AGG].</span>
-<span class="sd">        `resample` can also be a [Pandas offset string],</span>
-<span class="sd">        such as `&#39;5T&#39;` or `&#39;5min&#39;`, in which case this frequency will be</span>
+<span class="sd">        likewise, [reasonably _aggregated_] `TRADES_AGG&lt;lib.html#backtesting.lib.TRADES_AGG&gt;`__.</span>
+<span class="sd">        `resample` can also be a</span>
+<span class="sd">        `Pandas offset string&lt;https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects&gt;`__</span>
+<span class="sd">        , such as `&#39;5T&#39;` or `&#39;5min&#39;`, in which case this frequency will be</span>
 <span class="sd">        used to resample, overriding above numeric limitation.</span>
 <span class="sd">        Note, all this only works for data with a datetime index.</span>
 
 <span class="sd">        If `reverse_indicators` is `True`, the indicators below the OHLC chart</span>
 <span class="sd">        are plotted in reverse order of declaration.</span>
-
-<span class="sd">        [Pandas offset string]: \</span>
-<span class="sd">            https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects</span>
-
-<span class="sd">        [TRADES_AGG]: lib.html#backtesting.lib.TRADES_AGG</span>
 
 <span class="sd">        If `show_legend` is `True`, the resulting plot graphs will contain</span>
 <span class="sd">        labeled legends.</span>
@@ -1962,7 +1950,7 @@
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2024-2024, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Jun 06 2024 at 21:27 (CET).
+    Last updated on Jun 07 2024 at 09:28 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
