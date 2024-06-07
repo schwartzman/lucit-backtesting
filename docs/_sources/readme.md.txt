@@ -30,10 +30,10 @@ We are happy to maintain [our forked repository](https://github.com/LUCIT-System
 and take care of code reviews, pull requests and releases and hope for good support from the community!
 
 ## Description
-`lucit-backtesting` is a Python framework for inferring viability of trading strategies on historical (past) data. Of 
-course, past performance is not indicative of future results, but a strategy that proves itself resilient in a multitude 
-of market conditions can, with a little luck, remain just as reliable in the future. Improved upon the vision of 
-Backtrader, and by all means surpassingly comparable to other accessible alternatives, Backtesting.py is lightweight, 
+The package `lucit-backtesting` is a Python framework for inferring viability of trading strategies on historical (past) 
+data. Of course, past performance is not indicative of future results, but a strategy that proves itself resilient in a 
+multitude of market conditions can, with a little luck, remain just as reliable in the future. Improved upon the vision 
+of Backtrader, and by all means surpassingly comparable to other accessible alternatives, Backtesting.py is lightweight, 
 fast, user-friendly, intuitive, interactive, intelligent and, hopefully, future-proof. It is also documented well, 
 including a handful of tutorials. 
 
