@@ -1,7 +1,6 @@
 [![](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/logo/lucit-backtesting.png)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting)
 
-lucit-backtesting - 'backtesting.py' maintained by LUCIT
-========================================================
+# lucit-backtesting - 'backtesting.py' maintained by LUCIT
 
 [![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/lucit-backtesting.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/releases)
 [![PyPi Release](https://img.shields.io/pypi/v/lucit-backtesting?color=blue)](https://pypi.org/project/lucit-backtesting/)
@@ -30,8 +29,8 @@ stable versions.
 We are happy to maintain [our forked repository](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting) 
 and take care of code reviews, pull requests and releases and hope for good support from the community!
 
-Description
------------
+## Description
+
 `lucit-backtesting` is a Python framework for inferring viability of trading strategies on historical (past) data. Of 
 course, past performance is not indicative of future results, but a strategy that proves itself resilient in a multitude 
 of market conditions can, with a little luck, remain just as reliable in the future. Improved upon the vision of 
@@ -52,16 +51,16 @@ including a handful of tutorials.
 | **Composable strategies** | Contains a library of predefined utilities and general-purpose strategies that are made to stack. |
 
 
-Installation
-------------
+## Installation
+
 You can have either `backtesting.py` or `lucit-backtesting` installed, but not both!
 
     $ pip uninstall backtesting
     $ pip install lucit-backtesting
 
 
-Usage
------
+## Usage
+
 The example shows a simple, unoptimized moving average cross-over strategy. It's a common introductory strategy and a 
 pretty decent strategy overall, provided the market isn't whipsawing sideways.
 
@@ -141,8 +140,8 @@ _trades                       Size  EntryB...
 dtype: object
 ```
 
-Features
---------
+## Features
+
 * Simple, well-documented API
 * Blazing fast execution
 * Built-in optimizer
@@ -155,10 +154,15 @@ Features
 ![xkcd.com/1570](https://imgs.xkcd.com/comics/engineer_syllogism.png)
 
 
-Bugs
-----
+## Bugs
+
 Before [reporting bugs](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues) or posting to the
 [discussion board](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/discussions),
 please read [contributing guidelines](https://lucit-backtesting.docs.lucit.tech/contributing.html), 
 particularly the section about crafting useful bug reports and ```` ``` ````-fencing your code. We thank you!
 
+## Commercial Support
+
+[![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
+
+***Do you need a developer, operator or consultant?*** [Contact us](https://www.lucit.tech/contact.html) for a non-binding initial consultation!
