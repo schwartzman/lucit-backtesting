@@ -54,10 +54,10 @@ including a handful of tutorials.
 ## Installation
 
 You can have either `backtesting.py` or `lucit-backtesting` installed, but not both!
-
-    $ pip uninstall backtesting
-    $ pip install lucit-backtesting
-
+```
+$ pip uninstall backtesting
+$ pip install lucit-backtesting
+```
 
 ## Usage
 
@@ -75,7 +75,6 @@ We record most significant statistics this simple system produces on our data, a
 inspection. 
 
 ```
-#!/usr/bin/env python3
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 from backtesting.test import SMA, GOOG
