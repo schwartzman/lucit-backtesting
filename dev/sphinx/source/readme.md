@@ -77,9 +77,7 @@ inspection.
 ```
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
-
 from backtesting.test import SMA, GOOG
-
 
 class SmaCross(Strategy):
     def init(self):
@@ -93,9 +91,7 @@ class SmaCross(Strategy):
         elif crossover(self.ma2, self.ma1):
             self.sell()
 
-
-bt = Backtest(GOOG, SmaCross, commission=.02,
-              exclusive_orders=True)
+bt = Backtest(GOOG, SmaCross, commission=.002, exclusive_orders=True)
 stats = bt.run()
 bt.plot()
 ```
@@ -103,7 +99,6 @@ bt.plot()
 Results in:
 
 [![Backtesting HTML result](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/example_html_result.png)](https://lucit-backtesting.docs.lucit.tech/_static/example_result.html)
-
 
 ```
 Start                     2004-08-19 00:00:00

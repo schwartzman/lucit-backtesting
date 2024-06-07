@@ -283,9 +283,7 @@ we go long, buying as many stocks as we can afford. When it crosses below, we cl
 inspection.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">backtesting</span> <span class="kn">import</span> <span class="n">Backtest</span><span class="p">,</span> <span class="n">Strategy</span>
 <span class="kn">from</span> <span class="nn">backtesting.lib</span> <span class="kn">import</span> <span class="n">crossover</span>
-
 <span class="kn">from</span> <span class="nn">backtesting.test</span> <span class="kn">import</span> <span class="n">SMA</span><span class="p">,</span> <span class="n">GOOG</span>
-
 
 <span class="k">class</span> <span class="nc">SmaCross</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -299,9 +297,7 @@ inspection.</p>
         <span class="k">elif</span> <span class="n">crossover</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ma2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ma1</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">()</span>
 
-
-<span class="n">bt</span> <span class="o">=</span> <span class="n">Backtest</span><span class="p">(</span><span class="n">GOOG</span><span class="p">,</span> <span class="n">SmaCross</span><span class="p">,</span> <span class="n">commission</span><span class="o">=</span><span class="mf">.02</span><span class="p">,</span>
-              <span class="n">exclusive_orders</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bt</span> <span class="o">=</span> <span class="n">Backtest</span><span class="p">(</span><span class="n">GOOG</span><span class="p">,</span> <span class="n">SmaCross</span><span class="p">,</span> <span class="n">commission</span><span class="o">=</span><span class="mf">.002</span><span class="p">,</span> <span class="n">exclusive_orders</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">stats</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">bt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
@@ -496,7 +492,7 @@ please read <a class="reference external" href="https://lucit-backtesting.docs.l
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2024-2024, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Jun 07 2024 at 10:37 (CET).
+    Last updated on Jun 07 2024 at 10:42 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
