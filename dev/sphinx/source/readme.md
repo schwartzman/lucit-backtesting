@@ -140,26 +140,11 @@ _trades                       Size  EntryB...
 dtype: object
 ```
 
-## Features
-
-* Simple, well-documented API
-* Blazing fast execution
-* Built-in optimizer
-* Library of composable base strategies and utilities
-* Indicator-library-agnostic
-* Supports _any_ financial instrument with candlestick data
-* Detailed results
-* Interactive visualizations
-
-![xkcd.com/1570](https://imgs.xkcd.com/comics/engineer_syllogism.png)
-
-
 ## Bugs
 
 Before [reporting bugs](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues) or posting to the
-[discussion board](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/discussions),
-please read [contributing guidelines](https://lucit-backtesting.docs.lucit.tech/contributing.html), 
-particularly the section about crafting useful bug reports and ```` ``` ````-fencing your code. We thank you!
+[discussion board](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/discussions) and 
+please read [contributing guidelines](https://lucit-backtesting.docs.lucit.tech/contributing.html). We thank you!
 
 ## Commercial Support
 
