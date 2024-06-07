@@ -17,7 +17,7 @@
 [![Get Free Professional Support](https://img.shields.io/badge/chat-lucit%20support-004166)](https://www.lucit.tech/get-support.html)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/kernc?color=pink)](https://github.com/sponsors/kernc)
 
-Backtest trading strategies with Python.
+***Backtest trading strategies with Python.***
 
 Kudos to ***Zach Lûster*** for the original project [`kernc/backtesting.py`](https://github.com/kernc/backtesting.py) 
 which he built and maintained for 5 years. 
