@@ -74,8 +74,7 @@ we go long, buying as many stocks as we can afford. When it crosses below, we cl
 We record most significant statistics this simple system produces on our data, and we show a plot for further manual 
 inspection. 
 
-``` 
-#!/usr/bin/env python3
+```
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 from backtesting.test import SMA, GOOG
