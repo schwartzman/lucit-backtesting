@@ -30,6 +30,28 @@ stable versions.
 We are happy to maintain [our forked repository](https://github.com/LUCIT-Systems-and-Development/lucit-backtesting) 
 and take care of code reviews, pull requests and releases and hope for good support from the community!
 
+Description
+-----------
+`lucit-backtesting` is a Python framework for inferring viability of trading strategies on historical (past) data. Of 
+course, past performance is not indicative of future results, but a strategy that proves itself resilient in a multitude 
+of market conditions can, with a little luck, remain just as reliable in the future. Improved upon the vision of 
+Backtrader, and by all means surpassingly comparable to other accessible alternatives, Backtesting.py is lightweight, 
+fast, user-friendly, intuitive, interactive, intelligent and, hopefully, future-proof. It is also documented well, 
+including a handful of tutorials. 
+
+| Feature | Description |
+| ------- | ----------- |
+| **Compatible with forex, crypto, stocks, futures ...** | Backtest any financial instrument for which you have access to historical candlestick data. |
+| **Blazing fast, convenient** | Built on top of cutting-edge ecosystem libraries (i.e. Pandas, NumPy, Bokeh) for maximum usability. |
+| **Small, clean API** | The API reference is easy to wrap your head around and fits on a single page. |
+| **Technical indicator library agnostic** | Compatible with any sensible technical analysis library, such as TA-Lib or Tulip. |
+| **Built-in optimizer** | Test hundreds of strategy variants in mere seconds, resulting in heatmaps you can interpret at a glance. |
+| **High-level API** | Think market timing, swing trading, money management, stop-loss and take-profit prices, leverage, machine learning ... |
+| **Interactive visualization** | Simulated trading results in telling interactive charts you can zoom into. See Example. |
+| **Vectorized or event-based backtesting** | Signal-driven or streaming, model your strategy enjoying the flexibility of both approaches. |
+| **Composable strategies** | Contains a library of predefined utilities and general-purpose strategies that are made to stack. |
+
+
 Installation
 ------------
 You can have either `backtesting.py` or `lucit-backtesting` installed, but not both!
@@ -40,6 +62,19 @@ You can have either `backtesting.py` or `lucit-backtesting` installed, but not b
 
 Usage
 -----
+The example shows a simple, unoptimized moving average cross-over strategy. It's a common introductory strategy and a 
+pretty decent strategy overall, provided the market isn't whipsawing sideways.
+
+We begin with 10,000 units of currency in cash, realistic 0.2% broker commission, and we trade through 9 years worth of 
+Alphabet Inc. stock. 
+
+Whenever the fast, 10-period simple moving average of closing prices crosses above the slower, 20-period moving average, 
+we go long, buying as many stocks as we can afford. When it crosses below, we close our long position and go short 
+(assuming the underlying instrument is actually a CFD and can be shorted).
+
+We record most significant statistics this simple system produces on our data, and we show a plot for further manual 
+inspection. 
+
 ```
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
@@ -60,7 +95,7 @@ class SmaCross(Strategy):
             self.sell()
 
 
-bt = Backtest(GOOG, SmaCross, commission=.002,
+bt = Backtest(GOOG, SmaCross, commission=.02,
               exclusive_orders=True)
 stats = bt.run()
 bt.plot()
