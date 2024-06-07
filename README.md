@@ -96,7 +96,7 @@ stats = bt.run()
 bt.plot()
 print(f"\r\nOverview:\r\n{stats}\r\n")
 print(f"\r\nEquity:\r\n{stats['_equity_curve']}\r\n")
-print(f"\r\nTrades:\r\n{stats['_trades']}\r\n")
+print(f"\r\nTrades:\r\n{stats['_trades']}")
 ```
 
 Results in:
