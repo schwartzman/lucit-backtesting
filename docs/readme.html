@@ -300,11 +300,15 @@ inspection.</p>
 <span class="n">bt</span> <span class="o">=</span> <span class="n">Backtest</span><span class="p">(</span><span class="n">GOOG</span><span class="p">,</span> <span class="n">SmaCross</span><span class="p">,</span> <span class="n">commission</span><span class="o">=</span><span class="mf">.002</span><span class="p">,</span> <span class="n">exclusive_orders</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">stats</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">bt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">Overview:</span><span class="se">\r\n</span><span class="si">{</span><span class="n">stats</span><span class="si">}</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">Equity:</span><span class="se">\r\n</span><span class="si">{</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;_equity_curve&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">Trades:</span><span class="se">\r\n</span><span class="si">{</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;_trades&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Results in:</p>
 <p><a class="reference external" href="https://lucit-backtesting.docs.lucit.tech/_static/example_result.html"><img alt="Backtesting HTML result" src="https://raw.githubusercontent.com/LUCIT-Systems-and-Development/lucit-backtesting/master/images/example_html_result.png" /></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Start                     2004-08-19 00:00:00
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Overview:
+Start                     2004-08-19 00:00:00
 End                       2013-03-01 00:00:00
 Duration                   3116 days 00:00:00
 Exposure Time [%]                       94.27
@@ -336,6 +340,35 @@ _strategy              SmaCross(n1=10, n2=20)
 _equity_curve                          Equ...
 _trades                       Size  EntryB...
 dtype: object
+
+Equity:
+                          Equity  DrawdownPct DrawdownDuration
+Date
+2023-01-02 13:03:00  10000.00000     0.000000              NaT
+2023-01-02 13:04:00  10000.00000     0.000000              NaT
+2023-01-02 13:05:00  10000.00000     0.000000              NaT
+2023-01-02 13:06:00  10000.00000     0.000000              NaT
+2023-01-02 13:07:00  10000.00000     0.000000              NaT
+...                          ...          ...              ...
+2024-01-01 00:55:00  11585.32229     0.050322              NaT
+2024-01-01 00:56:00  11585.32229     0.050322              NaT
+2024-01-01 00:57:00  11585.32229     0.050322              NaT
+2024-01-01 00:58:00  11585.32229     0.050322              NaT
+2024-01-01 00:59:00  11585.32229     0.050322 51 days 18:57:00
+
+Trades:
+    Size  EntryBar  ExitBar  EntryPrice    ExitPrice         PnL  ReturnPct           EntryTime            ExitTime   Tag        Duration
+0      6     23305    23305  1524.62018  1517.480252  -42.839567  -0.004683 2023-01-18 17:28:00 2023-01-18 17:28:00  None 0 days 00:00:00
+1      6     23308    23568  1522.60415  1521.180000   -8.544900  -0.000935 2023-01-18 17:31:00 2023-01-18 21:51:00  None 0 days 04:20:00
+2      6     23569    32957  1525.95417  1543.780000  106.954980   0.011682 2023-01-18 21:52:00 2023-01-25 10:20:00  None 6 days 12:28:00
+3      6     32958    40820  1546.69621  1542.810000  -23.317260  -0.002513 2023-01-25 10:21:00 2023-01-30 21:23:00  None 5 days 11:02:00
+4      6     40821    43959  1550.01614  1690.310000  841.763160   0.090511 2023-01-30 21:24:00 2023-02-02 01:42:00  None 2 days 04:18:00
+..   ...       ...      ...         ...          ...         ...        ...                 ...                 ...   ...             ...
+78     5    488520   488665  2205.67724  2184.630000 -105.236200  -0.009542 2023-12-11 19:03:00 2023-12-11 21:28:00  None 0 days 02:25:00
+79     5    488666   488673  2192.94917  2185.350000  -37.995850  -0.003465 2023-12-11 21:29:00 2023-12-11 21:36:00  None 0 days 00:07:00
+80     5    488674   489911  2191.03344  2187.110000  -19.617200  -0.001791 2023-12-11 21:37:00 2023-12-12 18:14:00  None 0 days 20:37:00
+81     5    489912   503782  2188.65633  2305.250000  582.968350   0.053272 2023-12-12 18:15:00 2023-12-22 09:25:00  None 9 days 15:10:00
+82     5    514701   517609  2277.31150  2259.124026  -90.937372  -0.007986 2023-12-29 23:24:00 2023-12-31 23:52:00  None 2 days 00:28:00
 </pre></div>
 </div>
 </section>
@@ -492,7 +525,7 @@ please read <a class="reference external" href="https://lucit-backtesting.docs.l
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2024-2024, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Jun 07 2024 at 10:42 (CET).
+    Last updated on Jun 07 2024 at 10:51 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/lucit-backtesting/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
