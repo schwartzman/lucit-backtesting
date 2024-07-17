@@ -109,6 +109,7 @@ class Strategy(metaclass=ABCMeta):
         overlay=None,
         color=None,
         scatter=False,
+        height=None,
         **kwargs,
     ) -> np.ndarray:
         """
@@ -198,6 +199,7 @@ class Strategy(metaclass=ABCMeta):
             overlay=overlay,
             color=color,
             scatter=scatter,
+            height=height,
             # _Indicator.s Series accessor uses this:
             index=self.data.index,
         )

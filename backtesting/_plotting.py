@@ -329,7 +329,7 @@ return this.labels[index] || "";
     ]
 
     def new_indicator_figure(**kwargs):
-        kwargs.setdefault('height', 90)
+        kwargs['height'] = kwargs.get('height') or 90
         fig = new_bokeh_figure(
             x_range=fig_ohlc.x_range,
             active_scroll='xwheel_zoom',
@@ -700,7 +700,7 @@ return this.labels[index] || "";
             if is_overlay:
                 fig = fig_ohlc
             else:
-                fig = new_indicator_figure()
+                fig = new_indicator_figure(height=value._opts['height'])
                 indicator_figs.append(fig)
             tooltips = []
             colors = value._opts['color']
